@@ -1,0 +1,19 @@
+{
+  "id": "c519a8c5-58a3-4a58-bb39-b756430c9075",
+  "timestamp": "2025-12-24T18:43:37.926796",
+  "extracted_data": {
+    "applicant_name": "Ondřej Všetečka",
+    "company_id": null,
+    "contact_details": "Tyršova 112, Hodonín 320 56, +420605297001, Ondrej.vsetecka@gmail.com",
+    "purpose_of_use": "rekonstrukce - stavební činnosti a umístění lešení",
+    "location": "Tyršova 112, 412/6, 618/3",
+    "duration": "24.12.2025 - 31.12.2025",
+    "area": 15
+  },
+  "documents": {
+    "consent": "output/consent_c519a8c5-58a3-4a58-bb39-b756430c9075.docx",
+    "payment": "output/payment_c519a8c5-58a3-4a58-bb39-b756430c9075.docx"
+  },
+  "status": "approved",
+  "approved_at": "2025-12-24T19:03:39.738004"
+}

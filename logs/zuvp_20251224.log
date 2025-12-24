@@ -1,0 +1,620 @@
+2025-12-24 14:24:56,868 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 14:24:56,869 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 14:24:56,885 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 14:24:57,334 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 14:24:57,339 - werkzeug - INFO -  * Debugger PIN: 740-166-352
+2025-12-24 14:25:02,882 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:25:02] "GET / HTTP/1.1" 200 -
+2025-12-24 14:25:03,389 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:25:03] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:25:19,366 - src.utils - INFO - Processing file Žádost o zábor pozemku.doc.pdf with ID bf34d536-668f-4299-b020-b6a817077c1f
+2025-12-24 14:25:19,368 - src.utils - INFO - File saved: uploads\bf34d536-668f-4299-b020-b6a817077c1f_Zadost_o_zabor_pozemku.doc.pdf
+2025-12-24 14:25:19,443 - src.utils - ERROR - Error processing PDF uploads\bf34d536-668f-4299-b020-b6a817077c1f_Zadost_o_zabor_pozemku.doc.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 14:25:19,444 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:25:19] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 14:25:29,203 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:25:29] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 14:26:20,089 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 19cfc49c-24b7-4f5b-a652-f604ce99166d
+2025-12-24 14:26:20,090 - src.utils - INFO - File saved: uploads\19cfc49c-24b7-4f5b-a652-f604ce99166d_demo_zuvp_application.pdf
+2025-12-24 14:26:20,114 - src.utils - INFO - Using cached extraction for uploads\19cfc49c-24b7-4f5b-a652-f604ce99166d_demo_zuvp_application.pdf
+2025-12-24 14:26:20,125 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:26:20] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 14:26:20,132 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:26:20] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:28:19,160 - werkzeug - INFO -  * Detected change in 'c:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\validation.py', reloading
+2025-12-24 14:28:19,221 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 14:28:19,642 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 14:28:19,647 - werkzeug - INFO -  * Debugger PIN: 740-166-352
+2025-12-24 14:29:08,879 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:29:08] "GET / HTTP/1.1" 200 -
+2025-12-24 14:29:09,308 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:29:09] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:29:19,723 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID c0979012-54b5-429e-8640-fa75938aa162
+2025-12-24 14:29:19,724 - src.utils - INFO - File saved: uploads\c0979012-54b5-429e-8640-fa75938aa162_demo_zuvp_application.pdf
+2025-12-24 14:29:19,725 - src.utils - INFO - Using cached extraction for uploads\c0979012-54b5-429e-8640-fa75938aa162_demo_zuvp_application.pdf
+2025-12-24 14:29:19,726 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:29:19] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 14:29:19,730 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:29:19] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:30:54,698 - werkzeug - INFO -  * Detected change in 'c:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\validation.py', reloading
+2025-12-24 14:30:54,763 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 14:30:55,256 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 14:30:55,260 - werkzeug - INFO -  * Debugger PIN: 740-166-352
+2025-12-24 14:31:04,628 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:31:04] "GET / HTTP/1.1" 200 -
+2025-12-24 14:31:04,718 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:31:04] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:31:12,474 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 9a20ad16-488a-41fb-9f9c-3b48a993975c
+2025-12-24 14:31:12,475 - src.utils - INFO - File saved: uploads\9a20ad16-488a-41fb-9f9c-3b48a993975c_demo_zuvp_application.pdf
+2025-12-24 14:31:12,476 - src.utils - INFO - Using cached extraction for uploads\9a20ad16-488a-41fb-9f9c-3b48a993975c_demo_zuvp_application.pdf
+2025-12-24 14:31:12,537 - src.utils - INFO - Consent document generated: output/consent_9a20ad16-488a-41fb-9f9c-3b48a993975c.docx
+2025-12-24 14:31:12,571 - src.utils - INFO - Payment instructions generated: output/payment_9a20ad16-488a-41fb-9f9c-3b48a993975c.docx
+2025-12-24 14:31:12,572 - src.utils - INFO - Successfully processed file demo_zuvp_application.pdf
+2025-12-24 14:31:12,572 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:31:12] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 14:31:15,349 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:31:15] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:31:23,603 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:31:23] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 14:32:10,590 - src.utils - INFO - All drafts cleared
+2025-12-24 14:32:10,590 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:32:10] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 14:32:11,882 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:32:11] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:32:15,236 - werkzeug - INFO -  * Detected change in 'c:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\app.py', reloading
+2025-12-24 14:32:15,305 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 14:32:15,749 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 14:32:15,753 - werkzeug - INFO -  * Debugger PIN: 740-166-352
+2025-12-24 14:32:20,169 - werkzeug - INFO -  * Detected change in 'c:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\app.py', reloading
+2025-12-24 14:32:20,291 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 14:32:20,765 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 14:32:20,769 - werkzeug - INFO -  * Debugger PIN: 740-166-352
+2025-12-24 14:32:28,315 - werkzeug - INFO -  * Detected change in 'c:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\pipeline.py', reloading
+2025-12-24 14:32:28,417 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 14:32:28,924 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 14:32:28,929 - werkzeug - INFO -  * Debugger PIN: 740-166-352
+2025-12-24 14:34:22,687 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:34:22] "GET / HTTP/1.1" 200 -
+2025-12-24 14:34:23,094 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:34:23] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:34:33,386 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID a2320b6f-e120-4e9f-8d40-b32037ef7080
+2025-12-24 14:34:33,387 - src.utils - INFO - File saved: uploads\a2320b6f-e120-4e9f-8d40-b32037ef7080_demo_zuvp_application.pdf
+2025-12-24 14:34:33,389 - src.utils - INFO - Using cached extraction for uploads\a2320b6f-e120-4e9f-8d40-b32037ef7080_demo_zuvp_application.pdf
+2025-12-24 14:34:33,428 - src.utils - INFO - Consent document generated: output/consent_a2320b6f-e120-4e9f-8d40-b32037ef7080.docx
+2025-12-24 14:34:33,460 - src.utils - INFO - Payment instructions generated: output/payment_a2320b6f-e120-4e9f-8d40-b32037ef7080.docx
+2025-12-24 14:34:33,460 - src.utils - INFO - Successfully processed file demo_zuvp_application.pdf
+2025-12-24 14:34:33,461 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:34:33] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 14:34:34,944 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:34:34] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:34:40,847 - src.utils - INFO - Draft a2320b6f-e120-4e9f-8d40-b32037ef7080 approved
+2025-12-24 14:34:40,848 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:34:40] "POST /api/approve/a2320b6f-e120-4e9f-8d40-b32037ef7080 HTTP/1.1" 200 -
+2025-12-24 14:34:42,463 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:34:42] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:34:48,026 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:34:48] "GET /api/download/a2320b6f-e120-4e9f-8d40-b32037ef7080/consent HTTP/1.1" 200 -
+2025-12-24 14:34:59,097 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:34:59] "GET /api/download/a2320b6f-e120-4e9f-8d40-b32037ef7080/payment HTTP/1.1" 200 -
+2025-12-24 14:36:22,665 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:36:22] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:37:24,674 - werkzeug - INFO -  * Detected change in 'c:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\ai_core.py', reloading
+2025-12-24 14:37:24,757 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 14:37:25,248 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 14:37:25,253 - werkzeug - INFO -  * Debugger PIN: 740-166-352
+2025-12-24 14:37:26,304 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:37:26] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 14:37:32,369 - src.utils - INFO - All drafts cleared
+2025-12-24 14:37:32,369 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:37:32] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 14:37:33,990 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:37:33] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:37:45,607 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:37:45] "GET / HTTP/1.1" 200 -
+2025-12-24 14:37:45,630 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:37:45] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 14:37:45,880 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:37:45] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:37:55,681 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 2b0665f5-9cd8-4979-b4ba-bba0fdfd74c2
+2025-12-24 14:37:55,683 - src.utils - INFO - File saved: uploads\2b0665f5-9cd8-4979-b4ba-bba0fdfd74c2_demo_zuvp_application.pdf
+2025-12-24 14:37:55,685 - src.utils - INFO - Using cached extraction for uploads\2b0665f5-9cd8-4979-b4ba-bba0fdfd74c2_demo_zuvp_application.pdf
+2025-12-24 14:37:55,727 - src.utils - INFO - Consent document generated: output/consent_2b0665f5-9cd8-4979-b4ba-bba0fdfd74c2.docx
+2025-12-24 14:37:55,763 - src.utils - INFO - Payment instructions generated: output/payment_2b0665f5-9cd8-4979-b4ba-bba0fdfd74c2.docx
+2025-12-24 14:37:55,763 - src.utils - INFO - Successfully processed file demo_zuvp_application.pdf
+2025-12-24 14:37:55,764 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:37:55] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 14:37:57,356 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:37:57] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:38:50,699 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:38:50] "GET / HTTP/1.1" 200 -
+2025-12-24 14:38:50,724 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:38:50] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 14:38:50,983 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:38:50] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:38:57,025 - src.utils - INFO - All drafts cleared
+2025-12-24 14:38:57,025 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:38:57] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 14:38:58,641 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:38:58] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:39:05,350 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 789921da-8cd7-451c-a40f-a122a29145b5
+2025-12-24 14:39:05,351 - src.utils - INFO - File saved: uploads\789921da-8cd7-451c-a40f-a122a29145b5_demo_zuvp_application.pdf
+2025-12-24 14:39:05,353 - src.utils - INFO - Using cached extraction for uploads\789921da-8cd7-451c-a40f-a122a29145b5_demo_zuvp_application.pdf
+2025-12-24 14:39:05,392 - src.utils - INFO - Consent document generated: output/consent_789921da-8cd7-451c-a40f-a122a29145b5.docx
+2025-12-24 14:39:05,424 - src.utils - INFO - Payment instructions generated: output/payment_789921da-8cd7-451c-a40f-a122a29145b5.docx
+2025-12-24 14:39:05,425 - src.utils - INFO - Successfully processed file demo_zuvp_application.pdf
+2025-12-24 14:39:05,425 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:39:05] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 14:39:07,259 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:39:07] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:43:06,173 - src.utils - INFO - Processing file Ruthie-Updated-Scan-Mobile.png with ID 9d918524-0fb2-46fe-827f-d1d2b50986bf
+2025-12-24 14:43:06,174 - src.utils - INFO - File saved: uploads\9d918524-0fb2-46fe-827f-d1d2b50986bf_Ruthie-Updated-Scan-Mobile.png
+2025-12-24 14:43:06,185 - src.utils - INFO - Using cached extraction for uploads\9d918524-0fb2-46fe-827f-d1d2b50986bf_Ruthie-Updated-Scan-Mobile.png
+2025-12-24 14:43:06,186 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:43:06] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 14:49:17,676 - werkzeug - INFO -  * Detected change in 'c:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\ai_core.py', reloading
+2025-12-24 14:49:17,803 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 14:51:28,922 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 14:51:28,922 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 14:51:28,930 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 14:51:29,566 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 14:51:29,570 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 14:51:29,590 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:51:29] "GET / HTTP/1.1" 200 -
+2025-12-24 14:51:29,614 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:51:29] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 14:51:30,007 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:51:30] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:51:47,005 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:51:47] "GET / HTTP/1.1" 200 -
+2025-12-24 14:51:47,026 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:51:47] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 14:51:47,242 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:51:47] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:52:00,373 - src.utils - INFO - All drafts cleared
+2025-12-24 14:52:00,373 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:52:00] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 14:52:02,273 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:52:02] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:52:11,060 - src.utils - INFO - Processing file Žádost o zábor pozemku.doc.pdf with ID 0525392b-1b70-40ed-8df0-0a46a3890e2e
+2025-12-24 14:52:11,061 - src.utils - INFO - File saved: uploads\0525392b-1b70-40ed-8df0-0a46a3890e2e_Zadost_o_zabor_pozemku.doc.pdf
+2025-12-24 14:52:11,074 - src.utils - INFO - Using cached extraction for uploads\0525392b-1b70-40ed-8df0-0a46a3890e2e_Zadost_o_zabor_pozemku.doc.pdf
+2025-12-24 14:52:11,075 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:52:11] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 14:53:27,957 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID d3e24264-7890-4e0e-8c27-6b37f7ac0e8a
+2025-12-24 14:53:27,958 - src.utils - INFO - File saved: uploads\d3e24264-7890-4e0e-8c27-6b37f7ac0e8a_demo_zuvp_application.pdf
+2025-12-24 14:53:27,960 - src.utils - INFO - Using cached extraction for uploads\d3e24264-7890-4e0e-8c27-6b37f7ac0e8a_demo_zuvp_application.pdf
+2025-12-24 14:53:28,016 - src.utils - INFO - Consent document generated: output/consent_d3e24264-7890-4e0e-8c27-6b37f7ac0e8a.docx
+2025-12-24 14:53:28,048 - src.utils - INFO - Payment instructions generated: output/payment_d3e24264-7890-4e0e-8c27-6b37f7ac0e8a.docx
+2025-12-24 14:53:28,049 - src.utils - INFO - Successfully processed file demo_zuvp_application.pdf
+2025-12-24 14:53:28,049 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:53:28] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 14:53:29,699 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:53:29] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:53:35,118 - src.utils - INFO - Draft d3e24264-7890-4e0e-8c27-6b37f7ac0e8a approved
+2025-12-24 14:53:35,119 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:53:35] "POST /api/approve/d3e24264-7890-4e0e-8c27-6b37f7ac0e8a HTTP/1.1" 200 -
+2025-12-24 14:53:36,831 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:53:36] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:55:03,492 - src.utils - INFO - Processing file Ruthie-Updated-Scan-Mobile.png with ID 488d0b9a-f156-471e-bb00-e1d35ae3ab55
+2025-12-24 14:55:03,493 - src.utils - INFO - File saved: uploads\488d0b9a-f156-471e-bb00-e1d35ae3ab55_Ruthie-Updated-Scan-Mobile.png
+2025-12-24 14:55:03,509 - src.utils - INFO - Using cached extraction for uploads\488d0b9a-f156-471e-bb00-e1d35ae3ab55_Ruthie-Updated-Scan-Mobile.png
+2025-12-24 14:55:03,510 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:55:03] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 14:56:49,002 - src.utils - INFO - All drafts cleared
+2025-12-24 14:56:49,003 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:56:49] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 14:56:50,529 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:56:50] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:57:03,701 - src.utils - INFO - Processing file pdf-demo.png with ID 99b22ec1-1488-487c-976d-02ef8c7438c6
+2025-12-24 14:57:03,702 - src.utils - INFO - File saved: uploads\99b22ec1-1488-487c-976d-02ef8c7438c6_pdf-demo.png
+2025-12-24 14:57:16,020 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:57:16] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 14:58:00,315 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 14:58:00,315 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 14:58:00,319 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 14:58:00,727 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 14:58:00,731 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 14:58:04,507 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:58:04] "GET / HTTP/1.1" 200 -
+2025-12-24 14:58:04,544 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:58:04] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 14:58:04,800 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:58:04] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:58:12,648 - src.utils - INFO - Processing file pdf-demo.png with ID d3fa54dc-056e-4f75-9f06-90ca01444bcb
+2025-12-24 14:58:12,649 - src.utils - INFO - File saved: uploads\d3fa54dc-056e-4f75-9f06-90ca01444bcb_pdf-demo.png
+2025-12-24 14:58:12,663 - src.utils - INFO - Using cached extraction for uploads\d3fa54dc-056e-4f75-9f06-90ca01444bcb_pdf-demo.png
+2025-12-24 14:58:12,664 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:58:12] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 14:59:17,451 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\pipeline.py', reloading
+2025-12-24 14:59:17,517 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 14:59:17,992 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 14:59:17,997 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 14:59:29,468 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 14:59:29,469 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 14:59:29,472 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 14:59:29,875 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 14:59:29,882 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 14:59:36,132 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:59:36] "GET / HTTP/1.1" 200 -
+2025-12-24 14:59:36,161 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:59:36] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 14:59:36,397 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:59:36] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 14:59:46,439 - src.utils - INFO - Processing file pdf-demo.png with ID b49fc738-b503-4131-9454-dc5cee7a595e
+2025-12-24 14:59:46,440 - src.utils - INFO - File saved: uploads\b49fc738-b503-4131-9454-dc5cee7a595e_pdf-demo.png
+2025-12-24 14:59:46,454 - src.utils - INFO - Using cached extraction for uploads\b49fc738-b503-4131-9454-dc5cee7a595e_pdf-demo.png
+2025-12-24 14:59:46,455 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 14:59:46] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:00:50,541 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:00:50] "GET / HTTP/1.1" 200 -
+2025-12-24 15:00:50,572 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:00:50] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 15:00:50,835 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:00:50] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:00:59,602 - src.utils - INFO - Processing file pdf-demo.png with ID eee47e9b-8d07-495f-bab6-2b32fc62c303
+2025-12-24 15:00:59,603 - src.utils - INFO - File saved: uploads\eee47e9b-8d07-495f-bab6-2b32fc62c303_pdf-demo.png
+2025-12-24 15:00:59,614 - src.utils - INFO - Using cached extraction for uploads\eee47e9b-8d07-495f-bab6-2b32fc62c303_pdf-demo.png
+2025-12-24 15:00:59,615 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:00:59] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:02:08,820 - src.utils - ERROR - Error clearing data: [WinError 32] The process cannot access the file because it is being used by another process: 'output\\payment_49cf0659-3041-415f-83d8-b06ff145f765.docx'
+2025-12-24 15:02:08,821 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:02:08] "[35m[1mPOST /api/clear-drafts HTTP/1.1[0m" 500 -
+2025-12-24 15:02:33,576 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\pipeline.py', reloading
+2025-12-24 15:02:33,640 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:02:34,125 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:02:34,130 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:02:46,164 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:02:46] "GET / HTTP/1.1" 200 -
+2025-12-24 15:02:46,199 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:02:46] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 15:02:46,423 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:02:46] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:02:55,757 - src.utils - INFO - Processing file pdf-demo.png with ID d168176f-b113-4b67-9a2b-b417116095f5
+2025-12-24 15:02:55,758 - src.utils - INFO - File saved: uploads\d168176f-b113-4b67-9a2b-b417116095f5_pdf-demo.png
+2025-12-24 15:03:05,003 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:03:05] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:04:08,003 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\app.py', reloading
+2025-12-24 15:04:08,079 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:04:08,540 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:04:08,544 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:04:14,622 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\app.py', reloading
+2025-12-24 15:04:14,693 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:04:15,154 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:04:15,158 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:04:28,312 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\ai_core.py', reloading
+2025-12-24 15:04:28,402 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:04:28,912 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:04:28,916 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:04:32,996 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\ai_core.py', reloading
+2025-12-24 15:04:33,242 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:06:50,228 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 15:06:50,229 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 15:06:50,233 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:06:50,632 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:06:50,636 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:07:41,311 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:07:41] "GET / HTTP/1.1" 200 -
+2025-12-24 15:07:41,346 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:07:41] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 15:07:41,590 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:07:41] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:08:07,868 - src.utils - INFO - Processing file pdf-demo.png with ID b5d734a4-c20f-4791-a6c4-35580d3dfba7
+2025-12-24 15:08:07,869 - src.utils - INFO - File saved: uploads\b5d734a4-c20f-4791-a6c4-35580d3dfba7_pdf-demo.png
+2025-12-24 15:08:07,882 - src.utils - INFO - Using cached extraction for uploads\b5d734a4-c20f-4791-a6c4-35580d3dfba7_pdf-demo.png
+2025-12-24 15:08:07,883 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:08:07] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:08:23,573 - src.utils - WARNING - Could not remove output file payment_49cf0659-3041-415f-83d8-b06ff145f765.docx: [WinError 32] The process cannot access the file because it is being used by another process: 'output\\payment_49cf0659-3041-415f-83d8-b06ff145f765.docx'
+2025-12-24 15:08:23,576 - src.utils - INFO - Cleared 11 items: ['cache: 54615060a4ece9cdabdc9c6ac031edbe.json', 'upload: b5d734a4-c20f-4791-a6c4-35580d3dfba7_pdf-demo.png', 'upload: d168176f-b113-4b67-9a2b-b417116095f5_pdf-demo.png', 'output: payment_789921da-8cd7-451c-a40f-a122a29145b5.docx', 'output: payment_9a20ad16-488a-41fb-9f9c-3b48a993975c.docx', 'output: payment_a2320b6f-e120-4e9f-8d40-b32037ef7080.docx', 'output: payment_be603aa6-62d7-46b6-a5b1-de9332f78172.docx', 'output: payment_cb7dec00-c2f1-464d-a921-f1987c3ad8a3.docx', 'output: payment_d3e24264-7890-4e0e-8c27-6b37f7ac0e8a.docx', 'output: payment_fd70b7df-7dab-4e92-9c3a-66ddf7f84369.docx', 'output: ~$yment_49cf0659-3041-415f-83d8-b06ff145f765.docx']
+2025-12-24 15:08:23,577 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:08:23] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 15:08:25,033 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:08:25] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:08:31,104 - src.utils - INFO - Processing file pdf-demo.png with ID b167da77-cb66-4a2c-99ba-b839e727b0e6
+2025-12-24 15:08:31,105 - src.utils - INFO - File saved: uploads\b167da77-cb66-4a2c-99ba-b839e727b0e6_pdf-demo.png
+2025-12-24 15:08:40,314 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:08:40] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:09:55,476 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\ai_core.py', reloading
+2025-12-24 15:09:55,578 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:09:56,072 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:09:56,076 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:10:02,159 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\ai_core.py', reloading
+2025-12-24 15:10:02,255 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:11:57,320 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 15:11:57,320 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 15:11:57,324 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:11:57,724 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:11:57,729 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:12:00,407 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:12:00] "GET / HTTP/1.1" 200 -
+2025-12-24 15:12:00,428 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:12:00] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 15:12:00,673 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:12:00] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:12:10,647 - src.utils - WARNING - Could not remove output file payment_49cf0659-3041-415f-83d8-b06ff145f765.docx: [WinError 32] The process cannot access the file because it is being used by another process: 'output\\payment_49cf0659-3041-415f-83d8-b06ff145f765.docx'
+2025-12-24 15:12:10,648 - src.utils - INFO - Cleared 2 items: ['cache: 54615060a4ece9cdabdc9c6ac031edbe.json', 'upload: b167da77-cb66-4a2c-99ba-b839e727b0e6_pdf-demo.png']
+2025-12-24 15:12:10,648 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:12:10] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 15:12:12,377 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:12:12] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:12:29,747 - src.utils - INFO - Processing file pdf-demo.png with ID 56a5a5cb-9498-4324-9a4d-44bebb5b91c5
+2025-12-24 15:12:29,748 - src.utils - INFO - File saved: uploads\56a5a5cb-9498-4324-9a4d-44bebb5b91c5_pdf-demo.png
+2025-12-24 15:12:39,296 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:12:39] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:13:48,723 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\validation.py', reloading
+2025-12-24 15:13:48,782 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:13:49,215 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:13:49,220 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:13:58,727 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:13:58] "GET / HTTP/1.1" 200 -
+2025-12-24 15:13:58,753 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:13:58] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 15:13:58,974 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:13:58] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:14:07,146 - src.utils - WARNING - Could not remove output file payment_49cf0659-3041-415f-83d8-b06ff145f765.docx: [WinError 32] The process cannot access the file because it is being used by another process: 'output\\payment_49cf0659-3041-415f-83d8-b06ff145f765.docx'
+2025-12-24 15:14:07,146 - src.utils - INFO - Cleared 2 items: ['cache: 54615060a4ece9cdabdc9c6ac031edbe.json', 'upload: 56a5a5cb-9498-4324-9a4d-44bebb5b91c5_pdf-demo.png']
+2025-12-24 15:14:07,146 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:14:07] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 15:14:08,513 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:14:08] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:14:14,772 - src.utils - INFO - Processing file pdf-demo.png with ID 2e187ea1-cc31-4abd-8a0b-50ec41b165b5
+2025-12-24 15:14:14,773 - src.utils - INFO - File saved: uploads\2e187ea1-cc31-4abd-8a0b-50ec41b165b5_pdf-demo.png
+2025-12-24 15:14:23,911 - src.utils - INFO - Consent document generated: output/consent_2e187ea1-cc31-4abd-8a0b-50ec41b165b5.docx
+2025-12-24 15:14:23,936 - src.utils - INFO - Payment instructions generated: output/payment_2e187ea1-cc31-4abd-8a0b-50ec41b165b5.docx
+2025-12-24 15:14:23,938 - src.utils - INFO - Successfully processed file pdf-demo.png
+2025-12-24 15:14:23,938 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:14:23] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:14:27,324 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:14:27] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:17:50,679 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\document_engine.py', reloading
+2025-12-24 15:17:50,805 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:17:51,400 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:17:51,405 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:17:51,424 - src.utils - WARNING - Could not remove output file payment_49cf0659-3041-415f-83d8-b06ff145f765.docx: [WinError 32] The process cannot access the file because it is being used by another process: 'output\\payment_49cf0659-3041-415f-83d8-b06ff145f765.docx'
+2025-12-24 15:17:51,424 - src.utils - INFO - Cleared 5 items: ['draft: 2e187ea1-cc31-4abd-8a0b-50ec41b165b5.json', 'cache: 54615060a4ece9cdabdc9c6ac031edbe.json', 'upload: 2e187ea1-cc31-4abd-8a0b-50ec41b165b5_pdf-demo.png', 'output: consent_2e187ea1-cc31-4abd-8a0b-50ec41b165b5.docx', 'output: payment_2e187ea1-cc31-4abd-8a0b-50ec41b165b5.docx']
+2025-12-24 15:17:51,425 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:17:51] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 15:17:52,860 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:17:52] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:17:55,477 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\document_engine.py', reloading
+2025-12-24 15:17:55,551 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:17:56,095 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:17:56,103 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:18:00,169 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\document_engine.py', reloading
+2025-12-24 15:18:00,280 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:18:00,854 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:18:00,858 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:18:23,856 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:18:23] "GET / HTTP/1.1" 200 -
+2025-12-24 15:18:23,880 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:18:23] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 15:18:24,110 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:18:24] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:18:33,154 - src.utils - INFO - Processing file pdf-demo.png with ID dae6f4c4-a394-40ce-bc0a-57e3b59ada1c
+2025-12-24 15:18:33,155 - src.utils - INFO - File saved: uploads\dae6f4c4-a394-40ce-bc0a-57e3b59ada1c_pdf-demo.png
+2025-12-24 15:18:41,487 - src.utils - INFO - Consent document generated: output/consent_dae6f4c4-a394-40ce-bc0a-57e3b59ada1c.docx
+2025-12-24 15:18:41,512 - src.utils - INFO - Payment instructions generated: output/payment_dae6f4c4-a394-40ce-bc0a-57e3b59ada1c.docx
+2025-12-24 15:18:41,513 - src.utils - INFO - Successfully processed file pdf-demo.png
+2025-12-24 15:18:41,514 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:18:41] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:18:44,374 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:18:44] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:20:38,151 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 15:20:38,151 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 15:20:38,155 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:20:38,558 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:20:38,562 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:20:44,142 - src.utils - WARNING - Could not remove output file payment_49cf0659-3041-415f-83d8-b06ff145f765.docx: [WinError 32] The process cannot access the file because it is being used by another process: 'output\\payment_49cf0659-3041-415f-83d8-b06ff145f765.docx'
+2025-12-24 15:20:44,143 - src.utils - INFO - Cleared 5 items: ['draft: dae6f4c4-a394-40ce-bc0a-57e3b59ada1c.json', 'cache: 54615060a4ece9cdabdc9c6ac031edbe.json', 'upload: dae6f4c4-a394-40ce-bc0a-57e3b59ada1c_pdf-demo.png', 'output: consent_dae6f4c4-a394-40ce-bc0a-57e3b59ada1c.docx', 'output: payment_dae6f4c4-a394-40ce-bc0a-57e3b59ada1c.docx']
+2025-12-24 15:20:44,144 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:20:44] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 15:20:45,823 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:20:45] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:20:51,662 - src.utils - INFO - Processing file pdf-demo.png with ID 5b556d77-9c98-410c-9a9d-809db03a93f6
+2025-12-24 15:20:51,663 - src.utils - INFO - File saved: uploads\5b556d77-9c98-410c-9a9d-809db03a93f6_pdf-demo.png
+2025-12-24 15:21:00,826 - src.utils - INFO - Consent document generated: output/consent_5b556d77-9c98-410c-9a9d-809db03a93f6.docx
+2025-12-24 15:21:00,854 - src.utils - INFO - Payment instructions generated: output/payment_5b556d77-9c98-410c-9a9d-809db03a93f6.docx
+2025-12-24 15:21:00,855 - src.utils - INFO - Successfully processed file pdf-demo.png
+2025-12-24 15:21:00,856 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:21:00] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:21:06,154 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:21:06] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:21:37,947 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 11456760-cc08-4266-bdfc-de8aea6abd91
+2025-12-24 15:21:37,948 - src.utils - INFO - File saved: uploads\11456760-cc08-4266-bdfc-de8aea6abd91_demo_zuvp_application.pdf
+2025-12-24 15:21:38,012 - src.utils - ERROR - Error processing PDF uploads\11456760-cc08-4266-bdfc-de8aea6abd91_demo_zuvp_application.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 15:21:38,013 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:21:38] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:21:45,621 - src.utils - WARNING - Could not remove output file payment_49cf0659-3041-415f-83d8-b06ff145f765.docx: [WinError 32] The process cannot access the file because it is being used by another process: 'output\\payment_49cf0659-3041-415f-83d8-b06ff145f765.docx'
+2025-12-24 15:21:45,622 - src.utils - INFO - Cleared 7 items: ['draft: 5b556d77-9c98-410c-9a9d-809db03a93f6.json', 'cache: 54615060a4ece9cdabdc9c6ac031edbe.json', 'cache: b7206224afc5b20836f91716bcfdf912.json', 'upload: 11456760-cc08-4266-bdfc-de8aea6abd91_demo_zuvp_application.pdf', 'upload: 5b556d77-9c98-410c-9a9d-809db03a93f6_pdf-demo.png', 'output: consent_5b556d77-9c98-410c-9a9d-809db03a93f6.docx', 'output: payment_5b556d77-9c98-410c-9a9d-809db03a93f6.docx']
+2025-12-24 15:21:45,622 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:21:45] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 15:21:47,082 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:21:47] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:21:55,965 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 488a5294-f783-4540-b95b-c70a426e243c
+2025-12-24 15:21:55,966 - src.utils - INFO - File saved: uploads\488a5294-f783-4540-b95b-c70a426e243c_demo_zuvp_application.pdf
+2025-12-24 15:21:55,970 - src.utils - ERROR - Error processing PDF uploads\488a5294-f783-4540-b95b-c70a426e243c_demo_zuvp_application.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 15:21:55,972 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:21:55] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:21:59,088 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 053bdac0-17e3-488c-8795-94dabe41b084
+2025-12-24 15:21:59,090 - src.utils - INFO - File saved: uploads\053bdac0-17e3-488c-8795-94dabe41b084_demo_zuvp_application.pdf
+2025-12-24 15:21:59,091 - src.utils - INFO - Using cached extraction for uploads\053bdac0-17e3-488c-8795-94dabe41b084_demo_zuvp_application.pdf
+2025-12-24 15:21:59,092 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:21:59] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:21:59,252 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 403ae558-567d-4742-88e1-d2af741d3a06
+2025-12-24 15:21:59,254 - src.utils - INFO - File saved: uploads\403ae558-567d-4742-88e1-d2af741d3a06_demo_zuvp_application.pdf
+2025-12-24 15:21:59,255 - src.utils - INFO - Using cached extraction for uploads\403ae558-567d-4742-88e1-d2af741d3a06_demo_zuvp_application.pdf
+2025-12-24 15:21:59,256 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:21:59] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:21:59,417 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 3c1ab9b1-c5f3-46c2-90f0-22ab0faa8fea
+2025-12-24 15:21:59,418 - src.utils - INFO - File saved: uploads\3c1ab9b1-c5f3-46c2-90f0-22ab0faa8fea_demo_zuvp_application.pdf
+2025-12-24 15:21:59,419 - src.utils - INFO - Using cached extraction for uploads\3c1ab9b1-c5f3-46c2-90f0-22ab0faa8fea_demo_zuvp_application.pdf
+2025-12-24 15:21:59,420 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:21:59] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:21:59,596 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 3e9aae3e-3b62-4b4f-a1e0-e80082a50597
+2025-12-24 15:21:59,597 - src.utils - INFO - File saved: uploads\3e9aae3e-3b62-4b4f-a1e0-e80082a50597_demo_zuvp_application.pdf
+2025-12-24 15:21:59,599 - src.utils - INFO - Using cached extraction for uploads\3e9aae3e-3b62-4b4f-a1e0-e80082a50597_demo_zuvp_application.pdf
+2025-12-24 15:21:59,599 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:21:59] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:21:59,761 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 9efc9239-29e2-4165-bb26-c42effaf860c
+2025-12-24 15:21:59,762 - src.utils - INFO - File saved: uploads\9efc9239-29e2-4165-bb26-c42effaf860c_demo_zuvp_application.pdf
+2025-12-24 15:21:59,763 - src.utils - INFO - Using cached extraction for uploads\9efc9239-29e2-4165-bb26-c42effaf860c_demo_zuvp_application.pdf
+2025-12-24 15:21:59,764 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:21:59] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:21:59,927 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID ff0aa60a-37d1-449a-b770-d578a3298260
+2025-12-24 15:21:59,928 - src.utils - INFO - File saved: uploads\ff0aa60a-37d1-449a-b770-d578a3298260_demo_zuvp_application.pdf
+2025-12-24 15:21:59,929 - src.utils - INFO - Using cached extraction for uploads\ff0aa60a-37d1-449a-b770-d578a3298260_demo_zuvp_application.pdf
+2025-12-24 15:21:59,930 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:21:59] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:22:00,092 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 3d8466b3-d0b2-4632-8785-5cca6e2da343
+2025-12-24 15:22:00,093 - src.utils - INFO - File saved: uploads\3d8466b3-d0b2-4632-8785-5cca6e2da343_demo_zuvp_application.pdf
+2025-12-24 15:22:00,095 - src.utils - INFO - Using cached extraction for uploads\3d8466b3-d0b2-4632-8785-5cca6e2da343_demo_zuvp_application.pdf
+2025-12-24 15:22:00,095 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:22:00] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:22:00,263 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID e535c429-3e62-4854-99a2-41d5190522e2
+2025-12-24 15:22:00,264 - src.utils - INFO - File saved: uploads\e535c429-3e62-4854-99a2-41d5190522e2_demo_zuvp_application.pdf
+2025-12-24 15:22:00,265 - src.utils - INFO - Using cached extraction for uploads\e535c429-3e62-4854-99a2-41d5190522e2_demo_zuvp_application.pdf
+2025-12-24 15:22:00,266 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:22:00] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:22:00,492 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 95129b32-b3a7-4b5d-bc8f-b44e5e67853c
+2025-12-24 15:22:00,493 - src.utils - INFO - File saved: uploads\95129b32-b3a7-4b5d-bc8f-b44e5e67853c_demo_zuvp_application.pdf
+2025-12-24 15:22:00,494 - src.utils - INFO - Using cached extraction for uploads\95129b32-b3a7-4b5d-bc8f-b44e5e67853c_demo_zuvp_application.pdf
+2025-12-24 15:22:00,494 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:22:00] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:23:49,450 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\ai_core.py', reloading
+2025-12-24 15:23:49,553 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:23:50,035 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:23:50,039 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:24:32,293 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:24:32] "GET / HTTP/1.1" 200 -
+2025-12-24 15:24:32,321 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:24:32] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 15:24:32,535 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:24:32] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:24:53,464 - src.utils - INFO - Processing file pdf-demo.png with ID f435bcac-f909-4302-beed-cae4f652b7eb
+2025-12-24 15:24:53,465 - src.utils - INFO - File saved: uploads\f435bcac-f909-4302-beed-cae4f652b7eb_pdf-demo.png
+2025-12-24 15:25:09,015 - src.utils - INFO - Consent document generated: output/consent_f435bcac-f909-4302-beed-cae4f652b7eb.docx
+2025-12-24 15:25:09,042 - src.utils - INFO - Payment instructions generated: output/payment_f435bcac-f909-4302-beed-cae4f652b7eb.docx
+2025-12-24 15:25:09,043 - src.utils - INFO - Successfully processed file pdf-demo.png
+2025-12-24 15:25:09,043 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:25:09] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:25:12,282 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:25:12] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:25:17,854 - src.utils - INFO - Draft f435bcac-f909-4302-beed-cae4f652b7eb approved
+2025-12-24 15:25:17,855 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:25:17] "POST /api/approve/f435bcac-f909-4302-beed-cae4f652b7eb HTTP/1.1" 200 -
+2025-12-24 15:25:19,578 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:25:19] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:25:39,389 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 4aa13880-6f18-4bb6-a187-c83a5031d224
+2025-12-24 15:25:39,390 - src.utils - INFO - File saved: uploads\4aa13880-6f18-4bb6-a187-c83a5031d224_demo_zuvp_application.pdf
+2025-12-24 15:25:39,447 - src.utils - ERROR - Error processing PDF uploads\4aa13880-6f18-4bb6-a187-c83a5031d224_demo_zuvp_application.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 15:25:39,448 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:25:39] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:26:47,676 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\app.py', reloading
+2025-12-24 15:26:47,757 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:31:43,184 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 15:31:43,185 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 15:31:43,190 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:31:43,665 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:31:43,669 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:31:49,780 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:31:49] "GET / HTTP/1.1" 200 -
+2025-12-24 15:31:49,819 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:31:49] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 15:31:50,115 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:31:50] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:32:03,141 - src.utils - INFO - Cleared 2 cache items
+2025-12-24 15:32:03,142 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:32:03] "POST /api/clear-cache HTTP/1.1" 200 -
+2025-12-24 15:32:07,805 - src.utils - WARNING - Could not remove output file payment_49cf0659-3041-415f-83d8-b06ff145f765.docx: [WinError 32] The process cannot access the file because it is being used by another process: 'output\\payment_49cf0659-3041-415f-83d8-b06ff145f765.docx'
+2025-12-24 15:32:07,806 - src.utils - INFO - Cleared 15 items: ['draft: f435bcac-f909-4302-beed-cae4f652b7eb.json', 'upload: 053bdac0-17e3-488c-8795-94dabe41b084_demo_zuvp_application.pdf', 'upload: 3c1ab9b1-c5f3-46c2-90f0-22ab0faa8fea_demo_zuvp_application.pdf', 'upload: 3d8466b3-d0b2-4632-8785-5cca6e2da343_demo_zuvp_application.pdf', 'upload: 3e9aae3e-3b62-4b4f-a1e0-e80082a50597_demo_zuvp_application.pdf', 'upload: 403ae558-567d-4742-88e1-d2af741d3a06_demo_zuvp_application.pdf', 'upload: 488a5294-f783-4540-b95b-c70a426e243c_demo_zuvp_application.pdf', 'upload: 4aa13880-6f18-4bb6-a187-c83a5031d224_demo_zuvp_application.pdf', 'upload: 95129b32-b3a7-4b5d-bc8f-b44e5e67853c_demo_zuvp_application.pdf', 'upload: 9efc9239-29e2-4165-bb26-c42effaf860c_demo_zuvp_application.pdf', 'upload: e535c429-3e62-4854-99a2-41d5190522e2_demo_zuvp_application.pdf', 'upload: f435bcac-f909-4302-beed-cae4f652b7eb_pdf-demo.png', 'upload: ff0aa60a-37d1-449a-b770-d578a3298260_demo_zuvp_application.pdf', 'output: consent_f435bcac-f909-4302-beed-cae4f652b7eb.docx', 'output: payment_f435bcac-f909-4302-beed-cae4f652b7eb.docx']
+2025-12-24 15:32:07,806 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:32:07] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 15:32:09,295 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:32:09] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:32:14,604 - src.utils - INFO - Cleared 0 cache items
+2025-12-24 15:32:14,604 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:32:14] "POST /api/clear-cache HTTP/1.1" 200 -
+2025-12-24 15:32:21,521 - src.utils - INFO - Processing file pdf-demo.png with ID 7c2de75b-a6f3-49d6-93f5-2b2164593256
+2025-12-24 15:32:21,523 - src.utils - INFO - File saved: uploads\7c2de75b-a6f3-49d6-93f5-2b2164593256_pdf-demo.png
+2025-12-24 15:32:30,670 - src.utils - INFO - Consent document generated: output/consent_7c2de75b-a6f3-49d6-93f5-2b2164593256.docx
+2025-12-24 15:32:30,699 - src.utils - INFO - Payment instructions generated: output/payment_7c2de75b-a6f3-49d6-93f5-2b2164593256.docx
+2025-12-24 15:32:30,700 - src.utils - INFO - Successfully processed file pdf-demo.png
+2025-12-24 15:32:30,700 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:32:30] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:32:33,833 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:32:33] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:32:42,361 - src.utils - INFO - Draft 7c2de75b-a6f3-49d6-93f5-2b2164593256 approved
+2025-12-24 15:32:42,362 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:32:42] "POST /api/approve/7c2de75b-a6f3-49d6-93f5-2b2164593256 HTTP/1.1" 200 -
+2025-12-24 15:32:43,649 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:32:43] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:32:51,505 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 8f9725f3-0f1c-43b4-82c6-d6746e66a656
+2025-12-24 15:32:51,506 - src.utils - INFO - File saved: uploads\8f9725f3-0f1c-43b4-82c6-d6746e66a656_demo_zuvp_application.pdf
+2025-12-24 15:32:51,574 - src.utils - ERROR - Error processing PDF uploads\8f9725f3-0f1c-43b4-82c6-d6746e66a656_demo_zuvp_application.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 15:32:51,576 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:32:51] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:33:05,348 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 1cca5c67-794d-4c80-b6ab-af609e5162f1
+2025-12-24 15:33:05,349 - src.utils - INFO - File saved: uploads\1cca5c67-794d-4c80-b6ab-af609e5162f1_demo_zuvp_application.pdf
+2025-12-24 15:33:05,352 - src.utils - ERROR - Error processing PDF uploads\1cca5c67-794d-4c80-b6ab-af609e5162f1_demo_zuvp_application.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 15:33:05,353 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:33:05] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:33:34,770 - src.utils - INFO - Cleared 2 cache items
+2025-12-24 15:33:34,771 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:33:34] "POST /api/clear-cache HTTP/1.1" 200 -
+2025-12-24 15:33:39,340 - src.utils - WARNING - Could not remove output file payment_49cf0659-3041-415f-83d8-b06ff145f765.docx: [WinError 32] The process cannot access the file because it is being used by another process: 'output\\payment_49cf0659-3041-415f-83d8-b06ff145f765.docx'
+2025-12-24 15:33:39,340 - src.utils - INFO - Cleared 6 items: ['draft: 7c2de75b-a6f3-49d6-93f5-2b2164593256.json', 'upload: 1cca5c67-794d-4c80-b6ab-af609e5162f1_demo_zuvp_application.pdf', 'upload: 7c2de75b-a6f3-49d6-93f5-2b2164593256_pdf-demo.png', 'upload: 8f9725f3-0f1c-43b4-82c6-d6746e66a656_demo_zuvp_application.pdf', 'output: consent_7c2de75b-a6f3-49d6-93f5-2b2164593256.docx', 'output: payment_7c2de75b-a6f3-49d6-93f5-2b2164593256.docx']
+2025-12-24 15:33:39,341 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:33:39] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 15:33:41,765 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:33:41] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:34:00,352 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 52160b5b-6476-408e-86a0-3d3f8e32d849
+2025-12-24 15:34:00,353 - src.utils - INFO - File saved: uploads\52160b5b-6476-408e-86a0-3d3f8e32d849_demo_zuvp_application.pdf
+2025-12-24 15:34:00,357 - src.utils - ERROR - Error processing PDF uploads\52160b5b-6476-408e-86a0-3d3f8e32d849_demo_zuvp_application.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 15:34:00,358 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:34:00] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:34:03,053 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 1fc4986f-505a-4ba1-bbf0-f1dd605a0ecb
+2025-12-24 15:34:03,056 - src.utils - INFO - File saved: uploads\1fc4986f-505a-4ba1-bbf0-f1dd605a0ecb_demo_zuvp_application.pdf
+2025-12-24 15:34:03,060 - src.utils - ERROR - Error processing PDF uploads\1fc4986f-505a-4ba1-bbf0-f1dd605a0ecb_demo_zuvp_application.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 15:34:03,063 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:34:03] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:34:05,854 - src.utils - INFO - Cleared 1 cache items
+2025-12-24 15:34:05,855 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:34:05] "POST /api/clear-cache HTTP/1.1" 200 -
+2025-12-24 15:34:09,561 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:34:09] "GET / HTTP/1.1" 200 -
+2025-12-24 15:34:09,590 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:34:09] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 15:34:09,808 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:34:09] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:34:20,027 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 058112bc-0139-42ea-a83d-13198ddada4a
+2025-12-24 15:34:20,028 - src.utils - INFO - File saved: uploads\058112bc-0139-42ea-a83d-13198ddada4a_demo_zuvp_application.pdf
+2025-12-24 15:34:20,032 - src.utils - ERROR - Error processing PDF uploads\058112bc-0139-42ea-a83d-13198ddada4a_demo_zuvp_application.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 15:34:20,033 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:34:20] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:35:21,901 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\ai_core.py', reloading
+2025-12-24 15:35:21,980 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:35:22,515 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:35:22,519 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:35:41,898 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 15:35:41,899 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 15:35:41,903 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:35:42,296 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:35:42,300 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:35:46,074 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:35:46] "GET / HTTP/1.1" 200 -
+2025-12-24 15:35:46,105 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:35:46] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 15:35:46,353 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:35:46] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:35:55,535 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 0eccbe2c-4a8d-42b0-9882-add8d051668e
+2025-12-24 15:35:55,536 - src.utils - INFO - File saved: uploads\0eccbe2c-4a8d-42b0-9882-add8d051668e_demo_zuvp_application.pdf
+2025-12-24 15:35:55,592 - src.utils - ERROR - Error processing PDF uploads\0eccbe2c-4a8d-42b0-9882-add8d051668e_demo_zuvp_application.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 15:35:55,593 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:35:55] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:36:58,994 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\ai_core.py', reloading
+2025-12-24 15:36:59,095 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:36:59,653 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:36:59,657 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:37:43,346 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 15:37:43,346 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 15:37:43,351 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:37:43,750 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:37:43,754 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:37:46,016 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:37:46] "GET / HTTP/1.1" 200 -
+2025-12-24 15:37:46,039 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:37:46] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 15:37:46,285 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:37:46] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:37:58,407 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 53c6f10b-36a1-4aa3-9135-f27d5c6c75eb
+2025-12-24 15:37:58,409 - src.utils - INFO - File saved: uploads\53c6f10b-36a1-4aa3-9135-f27d5c6c75eb_demo_zuvp_application.pdf
+2025-12-24 15:37:58,466 - src.utils - ERROR - Error converting PDF to images uploads\53c6f10b-36a1-4aa3-9135-f27d5c6c75eb_demo_zuvp_application.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 15:37:58,669 - src.utils - INFO - Extracted 1460 characters from PDF: uploads\53c6f10b-36a1-4aa3-9135-f27d5c6c75eb_demo_zuvp_application.pdf
+2025-12-24 15:39:00,078 - src.utils - ERROR - API request timed out
+2025-12-24 15:39:00,078 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:39:00] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:39:54,106 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\ai_core.py', reloading
+2025-12-24 15:39:54,208 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:39:54,688 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:39:54,694 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:40:04,803 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\ai_core.py', reloading
+2025-12-24 15:40:04,914 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:40:05,508 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:40:05,512 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:41:04,015 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\ai_core.py', reloading
+2025-12-24 15:41:04,085 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:41:04,569 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:41:04,575 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:41:23,553 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:41:23] "GET / HTTP/1.1" 200 -
+2025-12-24 15:41:23,584 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:41:23] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 15:41:23,835 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:41:23] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:41:33,369 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 4dd53be8-03d2-4e4f-a110-4bdfffb24e39
+2025-12-24 15:41:33,370 - src.utils - INFO - File saved: uploads\4dd53be8-03d2-4e4f-a110-4bdfffb24e39_demo_zuvp_application.pdf
+2025-12-24 15:41:33,428 - src.utils - ERROR - Error converting PDF to images uploads\4dd53be8-03d2-4e4f-a110-4bdfffb24e39_demo_zuvp_application.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 15:41:33,504 - src.utils - INFO - Extracted 1460 characters from PDF: uploads\4dd53be8-03d2-4e4f-a110-4bdfffb24e39_demo_zuvp_application.pdf
+2025-12-24 15:42:50,295 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:42:50] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:42:50,304 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:42:50] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:44:17,551 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\vrspace\\zuvp-ai-module\\src\\validation.py', reloading
+2025-12-24 15:44:17,627 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:44:18,203 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:44:18,207 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:46:52,142 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 15:46:52,142 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 15:46:52,151 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 15:46:53,247 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 15:46:53,257 - werkzeug - INFO -  * Debugger PIN: 127-358-734
+2025-12-24 15:46:54,314 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:46:54] "GET / HTTP/1.1" 200 -
+2025-12-24 15:46:54,349 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:46:54] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 15:46:54,972 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:46:54] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:47:11,911 - src.utils - INFO - Processing file demo_zuvp_application.pdf with ID 01bcbf0c-6ec7-4169-8f52-ae2ffdf7e8ca
+2025-12-24 15:47:11,913 - src.utils - INFO - File saved: uploads\01bcbf0c-6ec7-4169-8f52-ae2ffdf7e8ca_demo_zuvp_application.pdf
+2025-12-24 15:47:12,041 - src.utils - ERROR - Error converting PDF to images uploads\01bcbf0c-6ec7-4169-8f52-ae2ffdf7e8ca_demo_zuvp_application.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 15:47:12,240 - src.utils - INFO - Extracted 1460 characters from PDF: uploads\01bcbf0c-6ec7-4169-8f52-ae2ffdf7e8ca_demo_zuvp_application.pdf
+2025-12-24 15:48:14,019 - src.utils - INFO - Consent document generated: output/consent_01bcbf0c-6ec7-4169-8f52-ae2ffdf7e8ca.docx
+2025-12-24 15:48:14,090 - src.utils - INFO - Payment instructions generated: output/payment_01bcbf0c-6ec7-4169-8f52-ae2ffdf7e8ca.docx
+2025-12-24 15:48:14,092 - src.utils - INFO - Successfully processed file demo_zuvp_application.pdf
+2025-12-24 15:48:14,093 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:48:14] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:48:48,410 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:48:48] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:48:52,308 - src.utils - INFO - Draft 01bcbf0c-6ec7-4169-8f52-ae2ffdf7e8ca approved
+2025-12-24 15:48:52,309 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:48:52] "POST /api/approve/01bcbf0c-6ec7-4169-8f52-ae2ffdf7e8ca HTTP/1.1" 200 -
+2025-12-24 15:48:53,955 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:48:53] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 15:48:56,158 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:48:56] "GET /api/download/01bcbf0c-6ec7-4169-8f52-ae2ffdf7e8ca/consent HTTP/1.1" 200 -
+2025-12-24 15:49:10,641 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:49:10] "GET /api/download/01bcbf0c-6ec7-4169-8f52-ae2ffdf7e8ca/payment HTTP/1.1" 200 -
+2025-12-24 15:51:47,061 - src.utils - INFO - Processing file pdf-demo.png with ID 272d416c-84b4-47f4-ab67-7287a75cb254
+2025-12-24 15:51:47,064 - src.utils - INFO - File saved: uploads\272d416c-84b4-47f4-ab67-7287a75cb254_pdf-demo.png
+2025-12-24 15:51:56,880 - src.utils - INFO - Consent document generated: output/consent_272d416c-84b4-47f4-ab67-7287a75cb254.docx
+2025-12-24 15:51:56,944 - src.utils - INFO - Payment instructions generated: output/payment_272d416c-84b4-47f4-ab67-7287a75cb254.docx
+2025-12-24 15:51:56,946 - src.utils - INFO - Successfully processed file pdf-demo.png
+2025-12-24 15:51:56,947 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:51:56] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 15:51:59,148 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 15:51:59] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 18:28:48,529 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 18:28:48,530 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 18:28:48,573 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 18:28:49,876 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 18:28:49,902 - werkzeug - INFO -  * Debugger PIN: 740-166-352
+2025-12-24 18:28:59,299 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:28:59] "GET / HTTP/1.1" 200 -
+2025-12-24 18:28:59,459 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:28:59] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 18:29:00,218 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:29:00] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 18:29:10,423 - src.utils - INFO - Cleared 16 items: ['draft: 01bcbf0c-6ec7-4169-8f52-ae2ffdf7e8ca.json', 'draft: 272d416c-84b4-47f4-ab67-7287a75cb254.json', 'cache: b7206224afc5b20836f91716bcfdf912.json', 'upload: 01bcbf0c-6ec7-4169-8f52-ae2ffdf7e8ca_demo_zuvp_application.pdf', 'upload: 058112bc-0139-42ea-a83d-13198ddada4a_demo_zuvp_application.pdf', 'upload: 0eccbe2c-4a8d-42b0-9882-add8d051668e_demo_zuvp_application.pdf', 'upload: 1fc4986f-505a-4ba1-bbf0-f1dd605a0ecb_demo_zuvp_application.pdf', 'upload: 272d416c-84b4-47f4-ab67-7287a75cb254_pdf-demo.png', 'upload: 4dd53be8-03d2-4e4f-a110-4bdfffb24e39_demo_zuvp_application.pdf', 'upload: 52160b5b-6476-408e-86a0-3d3f8e32d849_demo_zuvp_application.pdf', 'upload: 53c6f10b-36a1-4aa3-9135-f27d5c6c75eb_demo_zuvp_application.pdf', 'output: consent_01bcbf0c-6ec7-4169-8f52-ae2ffdf7e8ca.docx', 'output: consent_272d416c-84b4-47f4-ab67-7287a75cb254.docx', 'output: payment_01bcbf0c-6ec7-4169-8f52-ae2ffdf7e8ca.docx', 'output: payment_272d416c-84b4-47f4-ab67-7287a75cb254.docx', 'output: payment_49cf0659-3041-415f-83d8-b06ff145f765.docx']
+2025-12-24 18:29:10,425 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:29:10] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 18:29:12,070 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:29:12] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 18:29:15,378 - src.utils - INFO - Cleared 0 cache items
+2025-12-24 18:29:15,379 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:29:15] "POST /api/clear-cache HTTP/1.1" 200 -
+2025-12-24 18:29:27,075 - src.utils - INFO - Processing file Copy of Žádost o zábor pozemku.docx.pdf with ID d4ff058b-e2f4-49d7-9f8c-4a4ee43ea968
+2025-12-24 18:29:27,081 - src.utils - INFO - File saved: uploads\d4ff058b-e2f4-49d7-9f8c-4a4ee43ea968_Copy_of_Zadost_o_zabor_pozemku.docx.pdf
+2025-12-24 18:29:27,232 - src.utils - ERROR - Error converting PDF to images uploads\d4ff058b-e2f4-49d7-9f8c-4a4ee43ea968_Copy_of_Zadost_o_zabor_pozemku.docx.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 18:29:27,889 - src.utils - INFO - Extracted 1159 characters from PDF: uploads\d4ff058b-e2f4-49d7-9f8c-4a4ee43ea968_Copy_of_Zadost_o_zabor_pozemku.docx.pdf
+2025-12-24 18:30:24,394 - src.utils - INFO - Consent document generated: output/consent_d4ff058b-e2f4-49d7-9f8c-4a4ee43ea968.docx
+2025-12-24 18:30:24,472 - src.utils - INFO - Payment instructions generated: output/payment_d4ff058b-e2f4-49d7-9f8c-4a4ee43ea968.docx
+2025-12-24 18:30:24,474 - src.utils - INFO - Successfully processed file Copy of Žádost o zábor pozemku.docx.pdf
+2025-12-24 18:30:24,475 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:30:24] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 18:30:28,028 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:30:28] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 18:33:28,867 - src.utils - INFO - Draft d4ff058b-e2f4-49d7-9f8c-4a4ee43ea968 approved
+2025-12-24 18:33:28,867 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:33:28] "POST /api/approve/d4ff058b-e2f4-49d7-9f8c-4a4ee43ea968 HTTP/1.1" 200 -
+2025-12-24 18:33:31,318 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:33:31] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 18:42:01,582 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 18:42:01,583 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 18:42:01,593 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 18:42:02,718 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 18:42:02,727 - werkzeug - INFO -  * Debugger PIN: 740-166-352
+2025-12-24 18:42:08,049 - src.utils - INFO - Cleared 4 items: ['draft: d4ff058b-e2f4-49d7-9f8c-4a4ee43ea968.json', 'upload: d4ff058b-e2f4-49d7-9f8c-4a4ee43ea968_Copy_of_Zadost_o_zabor_pozemku.docx.pdf', 'output: consent_d4ff058b-e2f4-49d7-9f8c-4a4ee43ea968.docx', 'output: payment_d4ff058b-e2f4-49d7-9f8c-4a4ee43ea968.docx']
+2025-12-24 18:42:08,050 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:42:08] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 18:42:09,615 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:42:09] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 18:42:12,152 - src.utils - INFO - Cleared 0 cache items
+2025-12-24 18:42:12,153 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:42:12] "POST /api/clear-cache HTTP/1.1" 200 -
+2025-12-24 18:42:20,401 - src.utils - INFO - Processing file Copy of Žádost o zábor pozemku.docx.pdf with ID c519a8c5-58a3-4a58-bb39-b756430c9075
+2025-12-24 18:42:20,406 - src.utils - INFO - File saved: uploads\c519a8c5-58a3-4a58-bb39-b756430c9075_Copy_of_Zadost_o_zabor_pozemku.docx.pdf
+2025-12-24 18:42:20,585 - src.utils - ERROR - Error converting PDF to images uploads\c519a8c5-58a3-4a58-bb39-b756430c9075_Copy_of_Zadost_o_zabor_pozemku.docx.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 18:42:20,899 - src.utils - INFO - Extracted 1159 characters from PDF: uploads\c519a8c5-58a3-4a58-bb39-b756430c9075_Copy_of_Zadost_o_zabor_pozemku.docx.pdf
+2025-12-24 18:43:37,847 - src.utils - INFO - Consent document generated: output/consent_c519a8c5-58a3-4a58-bb39-b756430c9075.docx
+2025-12-24 18:43:37,926 - src.utils - INFO - Payment instructions generated: output/payment_c519a8c5-58a3-4a58-bb39-b756430c9075.docx
+2025-12-24 18:43:37,928 - src.utils - INFO - Successfully processed file Copy of Žádost o zábor pozemku.docx.pdf
+2025-12-24 18:43:37,929 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:43:37] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 18:43:40,903 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 18:43:40] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 19:03:00,707 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 19:03:00,708 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 19:03:00,720 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 19:03:01,859 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 19:03:01,884 - werkzeug - INFO -  * Debugger PIN: 740-166-352

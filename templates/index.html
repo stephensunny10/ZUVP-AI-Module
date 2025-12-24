@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZUVP AI Module</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .upload-area { border: 2px dashed #ccc; padding: 40px; text-align: center; margin: 20px 0; transition: all 0.3s; }
+        .upload-area:hover { border-color: #007bff; }
+        .upload-area.file-selected { border-color: #28a745; background: #f8fff8; }
+        .btn { background: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer; margin: 5px; }
+        .btn:hover { background: #0056b3; }
+        .btn:disabled { background: #ccc; cursor: not-allowed; }
+        .btn-danger { background: #dc3545; }
+        .btn-danger:hover { background: #c82333; }
+        .draft { border: 1px solid #ddd; padding: 15px; margin: 10px 0; }
+        .status { padding: 5px 10px; border-radius: 3px; }
+        .pending { background: #fff3cd; }
+        .approved { background: #d4edda; }
+        .loading { display: none; color: #007bff; margin: 10px 0; }
+        .file-info { color: #28a745; margin: 10px 0; display: none; }
+        .error-message { background: #f8d7da; color: #721c24; padding: 15px; border: 1px solid #f5c6cb; border-radius: 5px; margin: 10px 0; }
+        .warning-message { background: #fff3cd; color: #856404; padding: 15px; border: 1px solid #ffeaa7; border-radius: 5px; margin: 10px 0; }
+        .missing-data { margin: 10px 0; }
+        .missing-data ul { margin: 5px 0; padding-left: 20px; }
+        .found-data { background: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <h1>ZUVP AI Module - Automatizace žádostí</h1>
+    
+    <div class="upload-section">
+        <h2>Nahrát soubor</h2>
+        <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+            <p id="uploadText">Klikněte zde nebo přetáhněte soubor</p>
+            <p><small>Podporované formáty: PDF, JPG, PNG, DOCX, TXT</small></p>
+        </div>
+        <input type="file" id="fileInput" style="display: none" accept=".pdf,.jpg,.jpeg,.png,.docx,.txt">
+        <div class="file-info" id="fileInfo"></div>
+        <div class="error-message" id="errorMessage" style="display: none;"></div>
+        <div class="warning-message" id="warningMessage" style="display: none;"></div>
+        <button class="btn" id="processBtn" onclick="uploadFile()" disabled>Zpracovat</button>
+        <div class="loading" id="loading">
+            <div class="spinner"></div> Zpracovávám soubor...
+        </div>
+    </div>
+
+    <div class="drafts-section">
+        <h2>Koncepty k schválení</h2>
+        <div style="margin-bottom: 10px;">
+            <button class="btn" onclick="loadDrafts()">Obnovit</button>
+            <button class="btn" id="clearCacheBtn" onclick="clearCache()">Vymazat cache</button>
+            <button class="btn btn-danger" id="clearDraftsBtn" onclick="clearDrafts()">Vymazat všechny koncepty</button>
+        </div>
+        <div id="drafts"></div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const uploadArea = document.getElementById('uploadArea');
+        const uploadText = document.getElementById('uploadText');
+        const fileInfo = document.getElementById('fileInfo');
+        const processBtn = document.getElementById('processBtn');
+        const loading = document.getElementById('loading');
+        
+        // File selection handling
+        fileInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                uploadArea.classList.add('file-selected');
+                uploadText.textContent = 'Soubor vybrán';
+                fileInfo.textContent = `Vybraný soubor: ${file.name} (${(file.size/1024/1024).toFixed(2)} MB)`;
+                fileInfo.style.display = 'block';
+                processBtn.disabled = false;
+            }
+        });
+        
+        // Drag and drop
+        uploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.style.borderColor = '#007bff';
+        });
+        
+        uploadArea.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            this.style.borderColor = '#ccc';
+        });
+        
+        uploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.style.borderColor = '#ccc';
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                fileInput.files = files;
+                fileInput.dispatchEvent(new Event('change'));
+            }
+        });
+        
+        function uploadFile() {
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('Vyberte soubor');
+                return;
+            }
+            
+            // Show loading
+            loading.style.display = 'block';
+            processBtn.disabled = true;
+            processBtn.textContent = 'Zpracovávám...';
+            
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            fetch('/api/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('=== API RESPONSE ===', data);
+                
+                loading.style.display = 'none';
+                processBtn.disabled = false;
+                processBtn.textContent = 'Zpracovat';
+                
+                // Hide previous messages
+                document.getElementById('errorMessage').style.display = 'none';
+                document.getElementById('warningMessage').style.display = 'none';
+                
+                if (data.error) {
+                    console.log('=== ERROR RESPONSE ===', data);
+                    showError(data.error, data.validation);
+                } else if (data.warning) {
+                    console.log('=== WARNING RESPONSE ===', data);
+                    showWarning(data.warning, data.validation);
+                    loadDrafts();
+                } else {
+                    console.log('=== SUCCESS RESPONSE ===', data);
+                    alert('Soubor byl úspěšně zpracován');
+                    resetUpload();
+                    loadDrafts();
+                }
+            })
+            .catch(error => {
+                loading.style.display = 'none';
+                processBtn.disabled = false;
+                processBtn.textContent = 'Zpracovat';
+                alert('Chyba při nahrávání: ' + error);
+            });
+        }
+        
+        function resetUpload() {
+            fileInput.value = '';
+            uploadArea.classList.remove('file-selected');
+            uploadText.textContent = 'Klikněte zde nebo přetáhněte soubor';
+            fileInfo.style.display = 'none';
+            processBtn.disabled = true;
+        }
+        
+        function loadDrafts() {
+            fetch('/api/drafts')
+            .then(response => response.json())
+            .then(drafts => {
+                const draftsDiv = document.getElementById('drafts');
+                const clearDraftsBtn = document.getElementById('clearDraftsBtn');
+                
+                draftsDiv.innerHTML = '';
+                
+                if (drafts.length === 0) {
+                    draftsDiv.innerHTML = '<p>Žádné koncepty k zobrazení</p>';
+                    clearDraftsBtn.disabled = true;
+                    clearDraftsBtn.style.opacity = '0.5';
+                    return;
+                } else {
+                    clearDraftsBtn.disabled = false;
+                    clearDraftsBtn.style.opacity = '1';
+                }
+                
+                drafts.forEach(draft => {
+                    const draftDiv = document.createElement('div');
+                    draftDiv.className = 'draft';
+                    draftDiv.innerHTML = `
+                        <h3>Žádost ${draft.id.substring(0, 8)}...</h3>
+                        <p><strong>Stav:</strong> <span class="status ${draft.status}">${draft.status}</span></p>
+                        <p><strong>Žadatel:</strong> ${draft.extracted_data.applicant_name || draft.extracted_data['Applicant name'] || 'N/A'}</p>
+                        <p><strong>Účel:</strong> ${draft.extracted_data.purpose_of_use || draft.extracted_data['Purpose of use'] || 'N/A'}</p>
+                        <p><strong>Místo:</strong> ${draft.extracted_data.location || draft.extracted_data.specific_location || draft.extracted_data['Location'] || 'N/A'}</p>
+                        ${draft.status === 'pending_approval' ? 
+                            `<button class="btn" id="approve-${draft.id}" onclick="approveDraft('${draft.id}')">Schválit</button>` : 
+                            draft.status === 'approved' ? 
+                            `<div>
+                                <button class="btn" onclick="downloadDocument('${draft.id}', 'consent')">Stáhnout souhlas</button>
+                                <button class="btn" onclick="downloadDocument('${draft.id}', 'payment')">Stáhnout platební pokyny</button>
+                            </div>` : ''}
+                    `;
+                    draftsDiv.appendChild(draftDiv);
+                });
+            });
+        }
+        
+        function approveDraft(draftId) {
+            const approveBtn = document.getElementById(`approve-${draftId}`);
+            
+            // Show loading state
+            approveBtn.disabled = true;
+            approveBtn.innerHTML = '<div class="spinner"></div> Schvaluji...';
+            
+            fetch(`/api/approve/${draftId}`, {
+                method: 'POST'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data && data.error) {
+                    alert('Chyba: ' + data.error);
+                    // Reset button on error
+                    approveBtn.disabled = false;
+                    approveBtn.innerHTML = 'Schválit';
+                } else {
+                    alert('Koncept byl schválen');
+                    loadDrafts();
+                }
+            })
+            .catch(error => {
+                alert('Chyba: ' + error.message);
+                // Reset button on error
+                approveBtn.disabled = false;
+                approveBtn.innerHTML = 'Schválit';
+            });
+        }
+        
+        function clearCache() {
+            if (confirm('Opravdu chcete vymazat cache? To vynutí nové zpracování všech souborů.')) {
+                fetch('/api/clear-cache', {
+                    method: 'POST'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Chyba: ' + data.error);
+                    } else {
+                        alert(data.message || 'Cache byla vymazána');
+                    }
+                })
+                .catch(error => {
+                    alert('Chyba: ' + error);
+                });
+            }
+        }
+        
+        function clearDrafts() {
+            if (confirm('Opravdu chcete vymazat všechny koncepty?')) {
+                fetch('/api/clear-drafts', {
+                    method: 'POST'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Chyba: ' + data.error);
+                    } else {
+                        alert('Všechny koncepty byly vymazány');
+                        loadDrafts();
+                    }
+                })
+                .catch(error => {
+                    alert('Chyba: ' + error);
+                });
+            }
+        }
+        
+        function downloadDocument(draftId, docType) {
+            window.open(`/api/download/${draftId}/${docType}`, '_blank');
+        }
+        
+        function showError(message, validation) {
+            const errorDiv = document.getElementById('errorMessage');
+            let html = `<strong>Chyba:</strong> ${message}`;
+            
+            if (validation && validation.found_data && Object.keys(validation.found_data).length > 0) {
+                html += '<div class="found-data"><strong>Nalezené údaje:</strong><ul>';
+                for (const [key, value] of Object.entries(validation.found_data)) {
+                    html += `<li>${key}: ${value}</li>`;
+                }
+                html += '</ul></div>';
+            }
+            
+            errorDiv.innerHTML = html;
+            errorDiv.style.display = 'block';
+        }
+        
+        function showWarning(message, validation) {
+            const warningDiv = document.getElementById('warningMessage');
+            let html = `<strong>Upozornění:</strong> ${message}`;
+            
+            if (validation) {
+                if (validation.found_data && Object.keys(validation.found_data).length > 0) {
+                    html += '<div class="found-data"><strong>Nalezené údaje:</strong><ul>';
+                    for (const [key, value] of Object.entries(validation.found_data)) {
+                        html += `<li>${key}: ${value}</li>`;
+                    }
+                    html += '</ul></div>';
+                }
+                
+                if (validation.missing_optional && validation.missing_optional.length > 0) {
+                    html += '<div class="missing-data"><strong>Chybějící volitelné údaje:</strong><ul>';
+                    validation.missing_optional.forEach(field => {
+                        html += `<li>${field}</li>`;
+                    });
+                    html += '</ul></div>';
+                }
+            }
+            
+            warningDiv.innerHTML = html;
+            warningDiv.style.display = 'block';
+        }
+        
+        // Load drafts on page load
+        loadDrafts();
+    </script>
+</body>
+</html>
