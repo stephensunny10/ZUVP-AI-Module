@@ -10,10 +10,10 @@
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f7fa; }
         
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2c3e50;
             color: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
@@ -45,9 +45,8 @@
         .stat-label { color: #666; font-size: 0.9rem; }
         
         .main-content {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .drafts-panel {
@@ -88,7 +87,22 @@
         .status-pending { background: #fff3cd; color: #856404; }
         .status-approved { background: #d4edda; color: #155724; }
         
-        .draft-details { font-size: 0.9rem; color: #666; margin-bottom: 1rem; }
+        .draft-details { 
+            font-size: 0.95rem; 
+            color: #555; 
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .draft-details div {
+            margin-bottom: 0.5rem;
+        }
+        
+        .draft-details strong {
+            display: inline-block;
+            width: 80px;
+            color: #333;
+        }
         .draft-actions { display: flex; gap: 0.5rem; }
         
         .btn {
@@ -100,24 +114,36 @@
             transition: all 0.3s ease;
         }
         
+        .btn-success { background: #28a745; color: white; }
+        .btn-success:hover { background: #218838; }
         .btn-primary { background: #007bff; color: white; }
         .btn-primary:hover { background: #0056b3; }
-        .btn-success { background: #28a745; color: white; }
-        .btn-success:hover { background: #1e7e34; }
         .btn-secondary { background: #6c757d; color: white; }
         .btn-secondary:hover { background: #545b62; }
+        .btn-danger { background: #dc3545; color: white; }
+        .btn-danger:hover { background: #c82333; }
         
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        .upload-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
         }
         
-        .quick-actions {
+        .actions-section {
             background: white;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .actions-row {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
         }
         
         .upload-area {
@@ -152,79 +178,55 @@
         .status-inactive { background: #f8d7da; color: #721c24; }
         
         @media (max-width: 768px) {
-            .main-content { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .actions-row { flex-direction: column; align-items: stretch; }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1><i class="bi bi-building"></i> ZUVP AI Dashboard</h1>
+        <h1>ZUVP AI Dashboard</h1>
         <div class="subtitle">Automatizované zpracování žádostí o zvláštní užívání veřejného prostranství</div>
     </div>
     
     <div class="container">
-        <div class="stats-grid">
-            <div class="stat-card new">
-                <div class="stat-number" id="newCount">0</div>
-                <div class="stat-label"><i class="bi bi-file-earmark-plus text-danger"></i> Nové žádosti</div>
-            </div>
-            <div class="stat-card review">
-                <div class="stat-number" id="reviewCount">0</div>
-                <div class="stat-label"><i class="bi bi-clock-history text-warning"></i> Ke kontrole</div>
-            </div>
-            <div class="stat-card approved">
-                <div class="stat-number" id="approvedCount">0</div>
-                <div class="stat-label"><i class="bi bi-check-circle text-success"></i> Schválené</div>
-            </div>
-            <div class="stat-card monitoring">
-                <div class="stat-number" id="todayCount">0</div>
-                <div class="stat-label"><i class="bi bi-bar-chart"></i> Dnes zpracováno</div>
-            </div>
-        </div>
-        
         <div class="main-content">
-            <div class="drafts-panel">
-                <div class="panel-header">
-                    <i class="bi bi-clipboard-check"></i> Žádosti ke zpracování
-                    <button class="btn btn-secondary" onclick="loadDrafts()" style="float: right;"><i class="bi bi-arrow-clockwise"></i> Obnovit</button>
+            <!-- Upload Section -->
+            <div class="upload-section">
+                <h3 style="margin-bottom: 1.5rem;">Nahrát žádost</h3>
+                
+                <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;"><i class="bi bi-cloud-upload"></i></div>
+                    <div id="uploadText">Klikněte nebo přetáhněte soubor</div>
+                    <small style="color: #666;">PDF, JPG, PNG, DOCX, TXT</small>
                 </div>
-                <div class="panel-content" id="draftsContainer">
-                    <div style="text-align: center; color: #666; padding: 2rem;">
-                        Načítání žádostí...
+                <input type="file" id="fileInput" style="display: none" accept=".pdf,.jpg,.jpeg,.png,.docx,.txt">
+                
+                <div id="uploadStatus" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 5px;">
+                    <div id="uploadFileName" style="font-weight: bold; margin-bottom: 0.5rem;"></div>
+                    <div id="uploadProgress" style="font-size: 0.9rem; color: #666;"></div>
+                </div>
+            </div>
+            
+            <!-- Actions Section -->
+            <div class="actions-section">
+                <div class="actions-row">
+                    <button class="btn btn-secondary" onclick="loadDrafts()">Obnovit</button>
+                    <button class="btn btn-danger" onclick="clearCache()">Vymazat cache</button>
+                    <button class="btn btn-danger" onclick="clearDrafts()">Vymazat koncepty</button>
+                    <div id="monitorStatus" style="margin-left: auto; font-size: 0.9rem; color: #666;">
+                        Složka: <span id="monitorStatusText">Kontroluji stav...</span>
                     </div>
                 </div>
             </div>
             
-            <div class="sidebar">
-                <div class="quick-actions">
-                    <h3 style="margin-bottom: 1rem;"><i class="bi bi-lightning"></i> Rychlé akce</h3>
-                    
-                    <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
-                        <div style="font-size: 2rem; margin-bottom: 0.5rem;"><i class="bi bi-cloud-upload"></i></div>
-                        <div id="uploadText">Nahrát žádost</div>
-                        <small style="color: #666;">PDF, JPG, PNG, DOCX, TXT</small>
-                    </div>
-                    <input type="file" id="fileInput" style="display: none" accept=".pdf,.jpg,.jpeg,.png,.docx,.txt">
-                    
-                    <div id="uploadStatus" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 5px;">
-                        <div id="uploadFileName" style="font-weight: bold; margin-bottom: 0.5rem;"></div>
-                        <div id="uploadProgress" style="font-size: 0.9rem; color: #666;"></div>
-                    </div>
-                    
-                    <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                        <button class="btn btn-secondary" onclick="clearCache()"><i class="bi bi-trash"></i> Vymazat cache</button>
-                        <button class="btn btn-secondary" onclick="clearDrafts()"><i class="bi bi-trash"></i> Vymazat koncepty</button>
-                    </div>
+            <!-- Drafts Section -->
+            <div class="drafts-panel">
+                <div class="panel-header">
+                    Žádosti ke zpracování
                 </div>
-                
-                <div class="monitor-status">
-                    <h3 style="margin-bottom: 1rem;"><i class="bi bi-folder"></i> Sledování složky</h3>
-                    <div id="monitorStatusIndicator" class="status-indicator">
-                        <span><i class="bi bi-arrow-clockwise"></i> Kontroluji stav...</span>
-                    </div>
-                    <div style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
-                        Složka <strong>Zadosti/</strong> je automaticky sledována pro nové soubory.
+                <div class="panel-content" id="draftsContainer">
+                    <div style="text-align: center; color: #666; padding: 2rem;">
+                        Načítání žádostí...
                     </div>
                 </div>
             </div>
@@ -246,13 +248,7 @@
         }
         
         function updateStats(drafts) {
-            const newCount = drafts.filter(d => d.status === 'pending_approval').length;
-            const approvedCount = drafts.filter(d => d.status === 'approved').length;
-            
-            document.getElementById('newCount').textContent = newCount;
-            document.getElementById('reviewCount').textContent = 0; // Placeholder
-            document.getElementById('approvedCount').textContent = approvedCount;
-            document.getElementById('todayCount').textContent = drafts.length;
+            // Stats removed for simplified layout
         }
         
         function renderDrafts(drafts) {
@@ -266,22 +262,48 @@
             container.innerHTML = drafts.map(draft => `
                 <div class="draft-item">
                     <div class="draft-header">
-                        <div class="draft-id"><i class="bi bi-file-earmark"></i> ${draft.id.substring(0, 8)}...</div>
+                        <div class="draft-id">${draft.id.substring(0, 8)}...</div>
                         <div class="draft-status status-${draft.status === 'approved' ? 'approved' : 'pending'}">
-                            ${draft.status === 'approved' ? '<i class="bi bi-check-circle"></i> Schváleno' : '<i class="bi bi-clock"></i> Čeká na schválení'}
+                            ${draft.status === 'approved' ? 'Schváleno' : 'Čeká na schválení'}
                         </div>
                     </div>
+                    
+                    ${draft.validation && (draft.validation.missing_required.length > 0 || draft.validation.missing_optional.length > 0) ? 
+                        `<div style="background: ${draft.validation.missing_required.length > 0 ? '#f8d7da' : '#fff3cd'}; color: ${draft.validation.missing_required.length > 0 ? '#721c24' : '#856404'}; padding: 0.75rem; border-radius: 5px; margin-bottom: 1rem; font-size: 0.9rem;">
+                            ${draft.validation.missing_required.length > 0 ? 
+                                `<strong>Chybí povinné údaje:</strong><ul style="margin: 0.5rem 0 0 1rem; padding: 0;">${draft.validation.missing_required.map(field => `<li>${field}</li>`).join('')}</ul>` : ''
+                            }
+                            ${draft.validation.missing_optional.length > 0 ? 
+                                `<strong>Chybí volitelné údaje:</strong><ul style="margin: 0.5rem 0 0 1rem; padding: 0;">${draft.validation.missing_optional.map(field => `<li>${field}</li>`).join('')}</ul>` : ''
+                            }
+                        </div>` : ''
+                    }
+                    
                     <div class="draft-details">
-                        <div><strong><i class="bi bi-person"></i> Žadatel:</strong> ${draft.extracted_data.applicant_name || 'N/A'}</div>
-                        <div><strong><i class="bi bi-geo-alt"></i> Místo:</strong> ${draft.extracted_data.location || draft.extracted_data.specific_location || 'N/A'}</div>
-                        <div><strong><i class="bi bi-bullseye"></i> Účel:</strong> ${draft.extracted_data.purpose_of_use || 'N/A'}</div>
-                        <div><strong><i class="bi bi-currency-exchange"></i> Poplatek:</strong> ${draft.extracted_data.fee_czk || 0} Kč</div>
+                        <div><strong>Žadatel:</strong> ${draft.extracted_data.applicant_name || '<span style="color: #dc3545;">Chybí</span>'}</div>
+                        <div><strong>IČO:</strong> ${draft.extracted_data.company_id || '<span style="color: #6c757d;">Není uvedeno</span>'}</div>
+                        <div><strong>Kontakt:</strong> ${draft.extracted_data.contact_details ? 
+                            (typeof draft.extracted_data.contact_details === 'object' ? 
+                                `${draft.extracted_data.contact_details.address || ''}, tel: ${draft.extracted_data.contact_details.phone || ''}, email: ${draft.extracted_data.contact_details.email || ''}`.replace(/^, |, $/g, '').replace(/, ,/g, ',') : 
+                                draft.extracted_data.contact_details
+                            ) : '<span style="color: #6c757d;">Není uveden</span>'
+                        }</div>
+                        <div><strong>Místo:</strong> ${draft.extracted_data.location || draft.extracted_data.specific_location || '<span style="color: #dc3545;">Chybí</span>'}</div>
+                        <div><strong>Účel:</strong> ${draft.extracted_data.purpose_of_use || draft.extracted_data.purpose || '<span style="color: #dc3545;">Chybí</span>'}</div>
+                        <div><strong>Doba:</strong> ${draft.extracted_data.duration ? 
+                            (typeof draft.extracted_data.duration === 'object' ? 
+                                `${draft.extracted_data.duration.start || draft.extracted_data.duration.start_date || ''} - ${draft.extracted_data.duration.end || draft.extracted_data.duration.end_date || ''}` : 
+                                draft.extracted_data.duration
+                            ) : '<span style="color: #dc3545;">Chybí</span>'
+                        }</div>
+                        <div><strong>Plocha:</strong> ${draft.extracted_data.area_square_meters || draft.extracted_data.area_sqm || draft.extracted_data.area || '<span style="color: #dc3545;">Chybí</span>'} m²</div>
+                        <div><strong>Poplatek:</strong> ${draft.extracted_data.fee_czk || 0} Kč</div>
                     </div>
                     <div class="draft-actions">
                         ${draft.status === 'pending_approval' ? 
-                            `<button class="btn btn-success" onclick="approveDraft('${draft.id}')"><i class="bi bi-check-circle"></i> Schválit</button>` :
-                            `<button class="btn btn-primary" onclick="downloadDocument('${draft.id}', 'consent')"><i class="bi bi-file-earmark-text"></i> Souhlas</button>
-                             <button class="btn btn-primary" onclick="downloadDocument('${draft.id}', 'payment')"><i class="bi bi-credit-card"></i> Platba</button>`
+                            `<button class="btn btn-success" onclick="approveDraft('${draft.id}')">Schválit</button>` :
+                            `<button class="btn btn-primary" onclick="downloadDocument('${draft.id}', 'consent')">Souhlas</button>
+                             <button class="btn btn-primary" onclick="downloadDocument('${draft.id}', 'payment')">Platba</button>`
                         }
                     </div>
                 </div>
@@ -332,13 +354,13 @@
             fetch('/api/monitor/status')
             .then(response => response.json())
             .then(data => {
-                const indicator = document.getElementById('monitorStatusIndicator');
+                const statusText = document.getElementById('monitorStatusText');
                 if (data.monitoring) {
-                    indicator.className = 'status-indicator status-active';
-                    indicator.innerHTML = '<span><i class="bi bi-check-circle text-success"></i> Složka sledována</span>';
+                    statusText.innerHTML = 'Sledována';
+                    statusText.style.color = '#28a745';
                 } else {
-                    indicator.className = 'status-indicator status-inactive';
-                    indicator.innerHTML = '<span><i class="bi bi-x-circle text-danger"></i> Sledování vypnuto</span>';
+                    statusText.innerHTML = 'Vypnuto';
+                    statusText.style.color = '#dc3545';
                 }
             })
             .catch(error => {
@@ -363,8 +385,33 @@
                 })
                 .then(response => response.json())
                 .then(data => {
+                    console.log('=== UPLOAD RESPONSE ===');
+                    console.log('Full response:', data);
+                    if (data.extracted_data) {
+                        console.log('Extracted JSON:', JSON.stringify(data.extracted_data, null, 2));
+                    }
+                    if (data.validation) {
+                        console.log('Validation result:', data.validation);
+                    }
+                    console.log('=== END RESPONSE ===');
+                    
                     if (data.error) {
-                        showUploadStatus(file.name, 'Chyba: ' + data.error, 'error');
+                        let errorMsg = 'Chyba: ' + data.error;
+                        if (data.validation && (data.validation.missing_required || data.validation.missing_optional)) {
+                            if (data.validation.missing_required && data.validation.missing_required.length > 0) {
+                                errorMsg += '\n\nChybějící povinné údaje:';
+                                data.validation.missing_required.forEach(field => {
+                                    errorMsg += '\n• ' + field;
+                                });
+                            }
+                            if (data.validation.missing_optional && data.validation.missing_optional.length > 0) {
+                                errorMsg += '\n\nChybějící volitelné údaje:';
+                                data.validation.missing_optional.forEach(field => {
+                                    errorMsg += '\n• ' + field;
+                                });
+                            }
+                        }
+                        showUploadStatus(file.name, errorMsg, 'error');
                     } else {
                         showUploadStatus(file.name, 'Úspěšně zpracováno', 'success');
                         loadDrafts();
@@ -383,7 +430,7 @@
             const progressEl = document.getElementById('uploadProgress');
             
             fileNameEl.textContent = fileName;
-            progressEl.textContent = message;
+            progressEl.innerHTML = message.replace(/\n/g, '<br>');
             
             status.style.display = 'block';
             status.style.background = type === 'error' ? '#f8d7da' : 

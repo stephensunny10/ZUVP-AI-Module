@@ -20,7 +20,7 @@ class DocumentEngine:
         
         # Calculate duration and fee
         duration_days = self._calculate_duration(extracted_data.get('duration', {}))
-        area_sqm = extracted_data.get('area_sqm', 0)
+        area_sqm = extracted_data.get('area_square_meters') or extracted_data.get('area_sqm') or extracted_data.get('area', 0)
         fee = area_sqm * duration_days * Config.DEFAULT_RATE_PER_SQM_DAY if area_sqm else 0
         
         # Add calculated values to data
@@ -79,11 +79,10 @@ class DocumentEngine:
         doc.add_paragraph(f"Doba užívání: {duration}")
         
         # Fee calculation
-        area = data.get('area_in_square_meters') or data.get('area') or data.get('Area in square meters', 0)
+        area = data.get('area_square_meters') or data.get('area_sqm') or data.get('area', 0)
         if area:
-            fee = self._calculate_fee(area, duration)
             doc.add_paragraph(f"Výměra: {area} m²")
-            doc.add_paragraph(f"Poplatek: {fee} Kč")
+            doc.add_paragraph(f"Poplatek: {data.get('fee_czk', 0)} Kč")
         
         doc.add_paragraph()
         
@@ -114,9 +113,9 @@ class DocumentEngine:
         doc.add_paragraph()
         
         # Calculate fee
-        area = data.get('area_in_square_meters') or data.get('area', 0)
+        area = data.get('area_square_meters') or data.get('area_sqm') or data.get('area', 0)
         duration = data.get('duration', {})
-        fee = self._calculate_fee(area, duration) if area else 0
+        fee = data.get('fee_czk', 0)  # Use pre-calculated fee
         
         # Variable symbol (using request_id)
         vs = request_id.replace('-', '')[:10]  # Use first 10 chars of request_id
@@ -141,11 +140,32 @@ class DocumentEngine:
     def _calculate_duration(self, duration_data):
         """Calculate duration in days from duration data"""
         try:
-            if isinstance(duration_data, dict):
-                start_date = duration_data.get('start_date')
-                end_date = duration_data.get('end_date')
+            if isinstance(duration_data, str):
+                # Parse duration string like "24.12.2025 - 31.12.2025"
+                if ' - ' in duration_data:
+                    start_str, end_str = duration_data.split(' - ')
+                    return calculate_duration_days(start_str.strip(), end_str.strip())
+            elif isinstance(duration_data, dict):
+                # Handle both start/end and start_date/end_date formats
+                start_date = duration_data.get('start_date') or duration_data.get('start')
+                end_date = duration_data.get('end_date') or duration_data.get('end')
                 if start_date and end_date:
                     return calculate_duration_days(start_date, end_date)
-            return 30  # Default fallback
+            return 7  # Default fallback
+        except Exception as e:
+            logger.warning(f"Duration calculation failed: {e}")
+            return 7
+    
+    def _calculate_fee(self, area, duration):
+        """Calculate fee based on area and duration"""
+        try:
+            if isinstance(duration, str) and ' - ' in duration:
+                duration_days = self._calculate_duration(duration)
+            elif isinstance(duration, (int, float)):
+                duration_days = duration
+            else:
+                duration_days = 7  # Default
+            
+            return int(area * duration_days * Config.DEFAULT_RATE_PER_SQM_DAY)
         except:
-            return 30
+            return 0

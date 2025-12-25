@@ -54,7 +54,7 @@ class ZUVPPipeline:
                 return {
                     'request_id': request_id,
                     'status': 'incomplete_data', 
-                    'warning': validation_result['error_message'],
+                    'error': validation_result['error_message'],
                     'extracted_data': extracted_data,
                     'validation': validation_result
                 }
@@ -63,7 +63,7 @@ class ZUVPPipeline:
             documents = self.document_engine.generate_documents(extracted_data, request_id)
             
             # Stage 4: Create Draft
-            draft = self._create_draft(request_id, extracted_data, documents)
+            draft = self._create_draft(request_id, extracted_data, documents, validation_result)
             
             # Send notification to clerk (disabled for now)
             # self.email_notifier.send_draft_notification(draft)
@@ -75,13 +75,14 @@ class ZUVPPipeline:
             logger.error(f"Error processing file {file.filename}: {str(e)}")
             raise
     
-    def _create_draft(self, request_id, extracted_data, documents):
+    def _create_draft(self, request_id, extracted_data, documents, validation_result=None):
         draft = {
             'id': request_id,
             'timestamp': datetime.now().isoformat(),
             'extracted_data': extracted_data,
             'documents': documents,
-            'status': 'pending_approval'
+            'status': 'pending_approval',
+            'validation': validation_result
         }
         
         draft_path = os.path.join(Config.DRAFTS_FOLDER, f"{request_id}.json")
