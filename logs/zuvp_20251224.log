@@ -618,3 +618,40 @@
 2025-12-24 19:03:00,720 - werkzeug - INFO -  * Restarting with stat
 2025-12-24 19:03:01,859 - werkzeug - WARNING -  * Debugger is active!
 2025-12-24 19:03:01,884 - werkzeug - INFO -  * Debugger PIN: 740-166-352
+2025-12-24 19:03:04,806 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 19:03:04] "GET / HTTP/1.1" 200 -
+2025-12-24 19:03:04,877 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 19:03:04] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 19:03:05,557 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 19:03:05] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 19:03:39,739 - src.utils - INFO - Draft c519a8c5-58a3-4a58-bb39-b756430c9075 approved
+2025-12-24 19:03:39,740 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 19:03:39] "POST /api/approve/c519a8c5-58a3-4a58-bb39-b756430c9075 HTTP/1.1" 200 -
+2025-12-24 19:03:42,387 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 19:03:42] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 19:05:30,975 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 19:05:30] "GET /api/download/c519a8c5-58a3-4a58-bb39-b756430c9075/consent HTTP/1.1" 200 -
+2025-12-24 20:17:33,790 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.7:5000
+2025-12-24 20:17:33,791 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-24 20:17:33,821 - werkzeug - INFO -  * Restarting with stat
+2025-12-24 20:17:35,001 - werkzeug - WARNING -  * Debugger is active!
+2025-12-24 20:17:35,016 - werkzeug - INFO -  * Debugger PIN: 740-166-352
+2025-12-24 20:17:39,110 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 20:17:39] "GET / HTTP/1.1" 200 -
+2025-12-24 20:17:40,196 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 20:17:40] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 20:17:42,621 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 20:17:42] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-24 20:17:47,795 - src.utils - INFO - Cleared 4 items: ['draft: c519a8c5-58a3-4a58-bb39-b756430c9075.json', 'upload: c519a8c5-58a3-4a58-bb39-b756430c9075_Copy_of_Zadost_o_zabor_pozemku.docx.pdf', 'output: consent_c519a8c5-58a3-4a58-bb39-b756430c9075.docx', 'output: payment_c519a8c5-58a3-4a58-bb39-b756430c9075.docx']
+2025-12-24 20:17:47,798 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 20:17:47] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 20:17:49,377 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 20:17:49] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 20:17:51,970 - src.utils - INFO - Cleared 0 cache items
+2025-12-24 20:17:51,971 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 20:17:51] "POST /api/clear-cache HTTP/1.1" 200 -
+2025-12-24 20:18:01,740 - src.utils - INFO - Processing file Copy of Žádost o zábor pozemku.docx.pdf with ID 09ff5614-7597-4b16-a29c-b88f0d58c946
+2025-12-24 20:18:01,745 - src.utils - INFO - File saved: uploads\09ff5614-7597-4b16-a29c-b88f0d58c946_Copy_of_Zadost_o_zabor_pozemku.docx.pdf
+2025-12-24 20:18:01,879 - src.utils - ERROR - Error converting PDF to images uploads\09ff5614-7597-4b16-a29c-b88f0d58c946_Copy_of_Zadost_o_zabor_pozemku.docx.pdf: Unable to get page count. Is poppler installed and in PATH?
+2025-12-24 20:18:02,586 - src.utils - INFO - Extracted 1159 characters from PDF: uploads\09ff5614-7597-4b16-a29c-b88f0d58c946_Copy_of_Zadost_o_zabor_pozemku.docx.pdf
+2025-12-24 20:18:30,392 - src.utils - INFO - Consent document generated: output/consent_09ff5614-7597-4b16-a29c-b88f0d58c946.docx
+2025-12-24 20:18:30,474 - src.utils - INFO - Payment instructions generated: output/payment_09ff5614-7597-4b16-a29c-b88f0d58c946.docx
+2025-12-24 20:18:30,476 - src.utils - INFO - Successfully processed file Copy of Žádost o zábor pozemku.docx.pdf
+2025-12-24 20:18:30,477 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 20:18:30] "POST /api/upload HTTP/1.1" 200 -
+2025-12-24 20:19:44,636 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 20:19:44] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 20:24:30,954 - src.utils - INFO - Cleared 4 items: ['draft: 09ff5614-7597-4b16-a29c-b88f0d58c946.json', 'upload: 09ff5614-7597-4b16-a29c-b88f0d58c946_Copy_of_Zadost_o_zabor_pozemku.docx.pdf', 'output: consent_09ff5614-7597-4b16-a29c-b88f0d58c946.docx', 'output: payment_09ff5614-7597-4b16-a29c-b88f0d58c946.docx']
+2025-12-24 20:24:30,956 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 20:24:30] "POST /api/clear-drafts HTTP/1.1" 200 -
+2025-12-24 20:24:32,199 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 20:24:32] "GET /api/drafts HTTP/1.1" 200 -
+2025-12-24 20:24:34,884 - src.utils - INFO - Cleared 0 cache items
+2025-12-24 20:24:34,885 - werkzeug - INFO - 127.0.0.1 - - [24/Dec/2025 20:24:34] "POST /api/clear-cache HTTP/1.1" 200 -

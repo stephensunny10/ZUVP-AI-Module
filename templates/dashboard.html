@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZUVP AI Dashboard - Městský úřad</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f7fa; }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header .subtitle { opacity: 0.9; font-size: 0.9rem; }
+        
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid;
+        }
+        
+        .stat-card.new { border-left-color: #e74c3c; }
+        .stat-card.review { border-left-color: #f39c12; }
+        .stat-card.approved { border-left-color: #27ae60; }
+        .stat-card.monitoring { border-left-color: #3498db; }
+        
+        .stat-number { font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem; }
+        .stat-label { color: #666; font-size: 0.9rem; }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
+        
+        .drafts-panel {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .panel-header {
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+            font-weight: 600;
+        }
+        
+        .panel-content { padding: 1.5rem; }
+        
+        .draft-item {
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .draft-item:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        
+        .draft-header { display: flex; justify-content: between; align-items: center; margin-bottom: 0.5rem; }
+        .draft-id { font-weight: 600; color: #495057; }
+        .draft-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .status-pending { background: #fff3cd; color: #856404; }
+        .status-approved { background: #d4edda; color: #155724; }
+        
+        .draft-details { font-size: 0.9rem; color: #666; margin-bottom: 1rem; }
+        .draft-actions { display: flex; gap: 0.5rem; }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary { background: #007bff; color: white; }
+        .btn-primary:hover { background: #0056b3; }
+        .btn-success { background: #28a745; color: white; }
+        .btn-success:hover { background: #1e7e34; }
+        .btn-secondary { background: #6c757d; color: white; }
+        .btn-secondary:hover { background: #545b62; }
+        
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .quick-actions {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+        }
+        
+        .upload-area {
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .upload-area:hover { border-color: #007bff; background: #f8f9ff; }
+        .upload-area.dragover { border-color: #28a745; background: #f8fff8; }
+        
+        .monitor-status {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        
+        .status-active { background: #d4edda; color: #155724; }
+        .status-inactive { background: #f8d7da; color: #721c24; }
+        
+        @media (max-width: 768px) {
+            .main-content { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><i class="bi bi-building"></i> ZUVP AI Dashboard</h1>
+        <div class="subtitle">Automatizované zpracování žádostí o zvláštní užívání veřejného prostranství</div>
+    </div>
+    
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card new">
+                <div class="stat-number" id="newCount">0</div>
+                <div class="stat-label"><i class="bi bi-file-earmark-plus text-danger"></i> Nové žádosti</div>
+            </div>
+            <div class="stat-card review">
+                <div class="stat-number" id="reviewCount">0</div>
+                <div class="stat-label"><i class="bi bi-clock-history text-warning"></i> Ke kontrole</div>
+            </div>
+            <div class="stat-card approved">
+                <div class="stat-number" id="approvedCount">0</div>
+                <div class="stat-label"><i class="bi bi-check-circle text-success"></i> Schválené</div>
+            </div>
+            <div class="stat-card monitoring">
+                <div class="stat-number" id="todayCount">0</div>
+                <div class="stat-label"><i class="bi bi-bar-chart"></i> Dnes zpracováno</div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="drafts-panel">
+                <div class="panel-header">
+                    <i class="bi bi-clipboard-check"></i> Žádosti ke zpracování
+                    <button class="btn btn-secondary" onclick="loadDrafts()" style="float: right;"><i class="bi bi-arrow-clockwise"></i> Obnovit</button>
+                </div>
+                <div class="panel-content" id="draftsContainer">
+                    <div style="text-align: center; color: #666; padding: 2rem;">
+                        Načítání žádostí...
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="quick-actions">
+                    <h3 style="margin-bottom: 1rem;"><i class="bi bi-lightning"></i> Rychlé akce</h3>
+                    
+                    <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;"><i class="bi bi-cloud-upload"></i></div>
+                        <div id="uploadText">Nahrát žádost</div>
+                        <small style="color: #666;">PDF, JPG, PNG, DOCX, TXT</small>
+                    </div>
+                    <input type="file" id="fileInput" style="display: none" accept=".pdf,.jpg,.jpeg,.png,.docx,.txt">
+                    
+                    <div id="uploadStatus" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 5px;">
+                        <div id="uploadFileName" style="font-weight: bold; margin-bottom: 0.5rem;"></div>
+                        <div id="uploadProgress" style="font-size: 0.9rem; color: #666;"></div>
+                    </div>
+                    
+                    <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <button class="btn btn-secondary" onclick="clearCache()"><i class="bi bi-trash"></i> Vymazat cache</button>
+                        <button class="btn btn-secondary" onclick="clearDrafts()"><i class="bi bi-trash"></i> Vymazat koncepty</button>
+                    </div>
+                </div>
+                
+                <div class="monitor-status">
+                    <h3 style="margin-bottom: 1rem;"><i class="bi bi-folder"></i> Sledování složky</h3>
+                    <div id="monitorStatusIndicator" class="status-indicator">
+                        <span><i class="bi bi-arrow-clockwise"></i> Kontroluji stav...</span>
+                    </div>
+                    <div style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                        Složka <strong>Zadosti/</strong> je automaticky sledována pro nové soubory.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Load drafts and update stats
+        function loadDrafts() {
+            fetch('/api/drafts')
+            .then(response => response.json())
+            .then(drafts => {
+                updateStats(drafts);
+                renderDrafts(drafts);
+            })
+            .catch(error => {
+                console.error('Error loading drafts:', error);
+            });
+        }
+        
+        function updateStats(drafts) {
+            const newCount = drafts.filter(d => d.status === 'pending_approval').length;
+            const approvedCount = drafts.filter(d => d.status === 'approved').length;
+            
+            document.getElementById('newCount').textContent = newCount;
+            document.getElementById('reviewCount').textContent = 0; // Placeholder
+            document.getElementById('approvedCount').textContent = approvedCount;
+            document.getElementById('todayCount').textContent = drafts.length;
+        }
+        
+        function renderDrafts(drafts) {
+            const container = document.getElementById('draftsContainer');
+            
+            if (drafts.length === 0) {
+                container.innerHTML = '<div style="text-align: center; color: #666; padding: 2rem;">Žádné žádosti k zobrazení</div>';
+                return;
+            }
+            
+            container.innerHTML = drafts.map(draft => `
+                <div class="draft-item">
+                    <div class="draft-header">
+                        <div class="draft-id"><i class="bi bi-file-earmark"></i> ${draft.id.substring(0, 8)}...</div>
+                        <div class="draft-status status-${draft.status === 'approved' ? 'approved' : 'pending'}">
+                            ${draft.status === 'approved' ? '<i class="bi bi-check-circle"></i> Schváleno' : '<i class="bi bi-clock"></i> Čeká na schválení'}
+                        </div>
+                    </div>
+                    <div class="draft-details">
+                        <div><strong><i class="bi bi-person"></i> Žadatel:</strong> ${draft.extracted_data.applicant_name || 'N/A'}</div>
+                        <div><strong><i class="bi bi-geo-alt"></i> Místo:</strong> ${draft.extracted_data.location || draft.extracted_data.specific_location || 'N/A'}</div>
+                        <div><strong><i class="bi bi-bullseye"></i> Účel:</strong> ${draft.extracted_data.purpose_of_use || 'N/A'}</div>
+                        <div><strong><i class="bi bi-currency-exchange"></i> Poplatek:</strong> ${draft.extracted_data.fee_czk || 0} Kč</div>
+                    </div>
+                    <div class="draft-actions">
+                        ${draft.status === 'pending_approval' ? 
+                            `<button class="btn btn-success" onclick="approveDraft('${draft.id}')"><i class="bi bi-check-circle"></i> Schválit</button>` :
+                            `<button class="btn btn-primary" onclick="downloadDocument('${draft.id}', 'consent')"><i class="bi bi-file-earmark-text"></i> Souhlas</button>
+                             <button class="btn btn-primary" onclick="downloadDocument('${draft.id}', 'payment')"><i class="bi bi-credit-card"></i> Platba</button>`
+                        }
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function approveDraft(draftId) {
+            fetch(`/api/approve/${draftId}`, { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert('Chyba: ' + data.error);
+                } else {
+                    loadDrafts();
+                }
+            })
+            .catch(error => {
+                alert('Chyba: ' + error.message);
+            });
+        }
+        
+        function downloadDocument(draftId, docType) {
+            window.open(`/api/download/${draftId}/${docType}`, '_blank');
+        }
+        
+        function clearCache() {
+            if (confirm('Opravdu chcete vymazat cache?')) {
+                fetch('/api/clear-cache', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => alert(data.message || 'Cache vymazána'))
+                .catch(error => alert('Chyba: ' + error));
+            }
+        }
+        
+        function clearDrafts() {
+            if (confirm('Opravdu chcete vymazat všechny koncepty?')) {
+                fetch('/api/clear-drafts', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Všechny koncepty byly vymazány');
+                    loadDrafts();
+                })
+                .catch(error => alert('Chyba: ' + error));
+            }
+        }
+        
+        function checkMonitorStatus() {
+            fetch('/api/monitor/status')
+            .then(response => response.json())
+            .then(data => {
+                const indicator = document.getElementById('monitorStatusIndicator');
+                if (data.monitoring) {
+                    indicator.className = 'status-indicator status-active';
+                    indicator.innerHTML = '<span><i class="bi bi-check-circle text-success"></i> Složka sledována</span>';
+                } else {
+                    indicator.className = 'status-indicator status-inactive';
+                    indicator.innerHTML = '<span><i class="bi bi-x-circle text-danger"></i> Sledování vypnuto</span>';
+                }
+            })
+            .catch(error => {
+                console.error('Monitor status error:', error);
+            });
+        }
+        
+        // File upload handling
+        document.getElementById('fileInput').addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                showUploadStatus(file.name, 'Nahrávání...');
+                
+                const formData = new FormData();
+                formData.append('file', file);
+                
+                showUploadStatus(file.name, 'AI zpracovává dokument...');
+                
+                fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        showUploadStatus(file.name, 'Chyba: ' + data.error, 'error');
+                    } else {
+                        showUploadStatus(file.name, 'Úspěšně zpracováno', 'success');
+                        loadDrafts();
+                        setTimeout(() => hideUploadStatus(), 3000);
+                    }
+                })
+                .catch(error => {
+                    showUploadStatus(file.name, 'Chyba při zpracování', 'error');
+                });
+            }
+        });
+        
+        function showUploadStatus(fileName, message, type = 'processing') {
+            const status = document.getElementById('uploadStatus');
+            const fileNameEl = document.getElementById('uploadFileName');
+            const progressEl = document.getElementById('uploadProgress');
+            
+            fileNameEl.textContent = fileName;
+            progressEl.textContent = message;
+            
+            status.style.display = 'block';
+            status.style.background = type === 'error' ? '#f8d7da' : 
+                                   type === 'success' ? '#d4edda' : '#fff3cd';
+            status.style.color = type === 'error' ? '#721c24' : 
+                               type === 'success' ? '#155724' : '#856404';
+        }
+        
+        function hideUploadStatus() {
+            document.getElementById('uploadStatus').style.display = 'none';
+        }
+        
+        // Initialize
+        loadDrafts();
+        checkMonitorStatus();
+        setInterval(checkMonitorStatus, 30000);
+        setInterval(loadDrafts, 60000); // Auto-refresh every minute
+    </script>
+</body>
+</html>

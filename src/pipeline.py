@@ -6,6 +6,7 @@ from src.config import Config
 from src.ingestion import IngestionModule
 from src.ai_core import AICore
 from src.document_engine import DocumentEngine
+from src.email_notifier import EmailNotifier
 from src.utils import setup_logging
 
 logger = setup_logging()
@@ -17,6 +18,7 @@ class ZUVPPipeline:
         self.ingestion = IngestionModule()
         self.ai_core = AICore()
         self.document_engine = DocumentEngine()
+        self.email_notifier = EmailNotifier()
         self._ensure_directories()
     
     def _ensure_directories(self):
@@ -62,6 +64,9 @@ class ZUVPPipeline:
             
             # Stage 4: Create Draft
             draft = self._create_draft(request_id, extracted_data, documents)
+            
+            # Send notification to clerk (disabled for now)
+            # self.email_notifier.send_draft_notification(draft)
             
             logger.info(f"Successfully processed file {file.filename}")
             return {'request_id': request_id, 'status': 'draft_created', 'draft': draft}

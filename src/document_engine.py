@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from docx import Document
 from docx.shared import Inches
 from src.config import Config
-from src.utils import setup_logging
+from src.utils import setup_logging, generate_variable_symbol, calculate_duration_days
 
 logger = setup_logging()
 
@@ -14,6 +14,19 @@ class DocumentEngine:
     def generate_documents(self, extracted_data, request_id):
         """Generate consent document and payment instructions"""
         documents = {}
+        
+        # Generate Variable Symbol
+        vs = generate_variable_symbol(request_id)
+        
+        # Calculate duration and fee
+        duration_days = self._calculate_duration(extracted_data.get('duration', {}))
+        area_sqm = extracted_data.get('area_sqm', 0)
+        fee = area_sqm * duration_days * Config.DEFAULT_RATE_PER_SQM_DAY if area_sqm else 0
+        
+        # Add calculated values to data
+        extracted_data['variable_symbol'] = vs
+        extracted_data['duration_days'] = duration_days
+        extracted_data['fee_czk'] = int(fee)
         
         # Generate consent document
         consent_path = self._generate_consent(extracted_data, request_id)
@@ -110,8 +123,8 @@ class DocumentEngine:
         
         # Payment details
         doc.add_paragraph(f"Číslo žádosti: {request_id}")
-        doc.add_paragraph(f"Částka k úhradě: {fee} Kč")
-        doc.add_paragraph(f"Variabilní symbol: {vs}")
+        doc.add_paragraph(f"Částka k úhradě: {data.get('fee_czk', 0)} Kč")
+        doc.add_paragraph(f"Variabilní symbol: {data.get('variable_symbol', vs)}")
         doc.add_paragraph("Číslo účtu: 123456789/0100")  # Configurable
         doc.add_paragraph(f"Splatnost: {(datetime.now() + timedelta(days=30)).strftime('%d.%m.%Y')}")
         
@@ -125,23 +138,14 @@ class DocumentEngine:
         
         return output_path
     
-    def _calculate_fee(self, area, duration):
-        """Calculate fee based on area and duration"""
+    def _calculate_duration(self, duration_data):
+        """Calculate duration in days from duration data"""
         try:
-            if isinstance(duration, dict):
-                start_str = duration.get('start_date', '')
-                end_str = duration.get('end_date', '')
-                
-                if start_str and end_str:
-                    # Simple date parsing (extend as needed)
-                    days = 30  # Default fallback
-                else:
-                    days = 30
-            else:
-                days = 30
-            
-            fee = float(area) * days * Config.DEFAULT_RATE_PER_SQM_DAY
-            return int(fee)
-            
-        except (ValueError, TypeError):
-            return 0
+            if isinstance(duration_data, dict):
+                start_date = duration_data.get('start_date')
+                end_date = duration_data.get('end_date')
+                if start_date and end_date:
+                    return calculate_duration_days(start_date, end_date)
+            return 30  # Default fallback
+        except:
+            return 30

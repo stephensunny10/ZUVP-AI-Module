@@ -1,5 +1,6 @@
 import logging
 import os
+import hashlib
 from datetime import datetime
 
 def setup_logging():
@@ -19,3 +20,27 @@ def setup_logging():
     )
     
     return logging.getLogger(__name__)
+
+def generate_variable_symbol(request_id):
+    """Generate Czech banking Variable Symbol from request_id"""
+    hash_obj = hashlib.md5(request_id.encode())
+    numeric_hash = int(hash_obj.hexdigest()[:8], 16)
+    vs = str(numeric_hash)[:10]
+    return vs
+
+def calculate_duration_days(start_date, end_date):
+    """Calculate duration in days between two dates"""
+    try:
+        if isinstance(start_date, str):
+            start = datetime.strptime(start_date, '%Y-%m-%d')
+        else:
+            start = start_date
+            
+        if isinstance(end_date, str):
+            end = datetime.strptime(end_date, '%Y-%m-%d')
+        else:
+            end = end_date
+            
+        return (end - start).days + 1
+    except:
+        return 1

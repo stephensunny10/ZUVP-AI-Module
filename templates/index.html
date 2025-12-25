@@ -53,6 +53,7 @@
             <button class="btn" onclick="loadDrafts()">Obnovit</button>
             <button class="btn" id="clearCacheBtn" onclick="clearCache()">Vymazat cache</button>
             <button class="btn btn-danger" id="clearDraftsBtn" onclick="clearDrafts()">Vymazat všechny koncepty</button>
+            <span id="monitorStatus" style="margin-left: 20px; padding: 5px 10px; border-radius: 3px;"></span>
         </div>
         <div id="drafts"></div>
     </div>
@@ -323,6 +324,30 @@
         
         // Load drafts on page load
         loadDrafts();
+        checkMonitorStatus();
+        
+        // Check monitor status every 30 seconds
+        setInterval(checkMonitorStatus, 30000);
+        
+        function checkMonitorStatus() {
+            fetch('/api/monitor/status')
+            .then(response => response.json())
+            .then(data => {
+                const statusEl = document.getElementById('monitorStatus');
+                if (data.monitoring) {
+                    statusEl.textContent = `✅ Složka sledována: ${data.watch_folder}/`;
+                    statusEl.style.background = '#d4edda';
+                    statusEl.style.color = '#155724';
+                } else {
+                    statusEl.textContent = '❌ Sledování vypnuto';
+                    statusEl.style.background = '#f8d7da';
+                    statusEl.style.color = '#721c24';
+                }
+            })
+            .catch(error => {
+                console.error('Monitor status error:', error);
+            });
+        }
     </script>
 </body>
 </html>
