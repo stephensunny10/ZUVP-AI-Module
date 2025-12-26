@@ -46,9 +46,7 @@ def validate_zuvp_data(extracted_data):
         elif not value and field_key == 'purpose_of_use':
             value = extracted_data.get('purpose')
         elif not value and field_key == 'duration':
-            duration_data = extracted_data.get('duration')
-            if isinstance(duration_data, dict) and ('start' in duration_data or 'start_date' in duration_data):
-                value = duration_data
+            value = extracted_data.get('duration') or extracted_data.get('duration_dates')
         if value and str(value).strip() and str(value).strip().lower() not in ['n/a', 'none', 'null']:
             found_data[field_name] = value
             required_found.add(field_name)

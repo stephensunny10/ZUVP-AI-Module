@@ -294,7 +294,11 @@
                             (typeof draft.extracted_data.duration === 'object' ? 
                                 `${draft.extracted_data.duration.start || draft.extracted_data.duration.start_date || ''} - ${draft.extracted_data.duration.end || draft.extracted_data.duration.end_date || ''}` : 
                                 draft.extracted_data.duration
-                            ) : '<span style="color: #dc3545;"></span>'
+                            ) : draft.extracted_data.duration_dates ? 
+                            (typeof draft.extracted_data.duration_dates === 'object' ? 
+                                `${draft.extracted_data.duration_dates.start || draft.extracted_data.duration_dates.start_date || ''} - ${draft.extracted_data.duration_dates.end || draft.extracted_data.duration_dates.end_date || ''}` : 
+                                draft.extracted_data.duration_dates
+                            ) : '<span style="color: #dc3545;">Chybí</span>'
                         }</div>
                         <div><strong>Plocha:</strong> ${draft.extracted_data.area_square_meters || draft.extracted_data.area_sqm || draft.extracted_data.area || draft.extracted_data.area_in_square_meters || '<span style="color: #dc3545;"></span>'} m²</div>
                         <div><strong>Poplatek:</strong> ${draft.extracted_data.fee_czk || 0} Kč</div>

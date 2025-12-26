@@ -23,6 +23,9 @@ class Config:
     VISION_CACHE_FOLDER = 'vision_cache'
     EXTRACTED_TEXT_CACHE_FOLDER = 'extracted_text_cache'
     
+    # Cache configuration
+    ENABLE_CACHE = os.getenv('ENABLE_CACHE', 'true').lower() == 'true'
+    
     # Fee calculation
     DEFAULT_RATE_PER_SQM_DAY = 10  # CZK
     

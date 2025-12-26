@@ -17,9 +17,18 @@ class AICore:
         
     def extract_entities(self, file_path):
         """Extract entities from file using AI"""
-        print(f"\n=== PROCESSING FILE ===\nFile: {file_path}\nFile exists: {os.path.exists(file_path)}\n=== END FILE INFO ===")
+        print(f"\n=== PROCESSING FILE ===\nFile: {file_path}\nFile exists: {os.path.exists(file_path)}\nCache enabled: {Config.ENABLE_CACHE}\n=== END FILE INFO ===")
         
-        # COMPLETELY DISABLE CACHE FOR DEBUGGING
+        # Check cache if enabled
+        if Config.ENABLE_CACHE:
+            file_hash = self._get_file_hash(file_path)
+            cached_result = self._get_cached_result(file_path, file_hash)
+            if cached_result:
+                print(f"\n=== CACHE HIT ===\nUsing cached result for {file_path}\n=== END CACHE ===")
+                return cached_result
+        else:
+            file_hash = None
+        
         # Process file based on type
         if file_path.lower().endswith('.pdf'):
             extracted_data = self._process_pdf_with_vision_model(file_path)
@@ -27,6 +36,10 @@ class AICore:
             extracted_data = self._process_image(file_path)
         else:
             extracted_data = self._process_text_file(file_path)
+        
+        # Cache result if enabled and valid
+        if Config.ENABLE_CACHE and file_hash and not extracted_data.get('error'):
+            self._cache_result(file_path, file_hash, extracted_data)
         
         print(f"\n=== EXTRACTION COMPLETE ===\nResult: {extracted_data}\n=== END EXTRACTION ===")
         return extracted_data
@@ -245,3 +258,39 @@ class AICore:
         """Generate hash for file caching"""
         with open(file_path, 'rb') as f:
             return hashlib.md5(f.read()).hexdigest()
+    
+    def _get_cached_result(self, file_path, file_hash):
+        """Get cached result if available"""
+        try:
+            if file_path.lower().endswith(('.jpg', '.jpeg', '.png')):
+                cache_folder = Config.VISION_CACHE_FOLDER
+            else:
+                cache_folder = Config.EXTRACTED_TEXT_CACHE_FOLDER
+            
+            os.makedirs(cache_folder, exist_ok=True)
+            cache_file = os.path.join(cache_folder, f"{file_hash}.json")
+            
+            if os.path.exists(cache_file):
+                with open(cache_file, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+        except Exception as e:
+            logger.warning(f"Cache read error: {e}")
+        return None
+    
+    def _cache_result(self, file_path, file_hash, result):
+        """Cache the extraction result"""
+        try:
+            if file_path.lower().endswith(('.jpg', '.jpeg', '.png')):
+                cache_folder = Config.VISION_CACHE_FOLDER
+            else:
+                cache_folder = Config.EXTRACTED_TEXT_CACHE_FOLDER
+            
+            os.makedirs(cache_folder, exist_ok=True)
+            cache_file = os.path.join(cache_folder, f"{file_hash}.json")
+            
+            with open(cache_file, 'w', encoding='utf-8') as f:
+                json.dump(result, f, ensure_ascii=False, indent=2)
+            
+            print(f"\n=== CACHED RESULT ===\nCached to: {cache_file}\n=== END CACHE ===")
+        except Exception as e:
+            logger.warning(f"Cache write error: {e}")

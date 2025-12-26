@@ -19,8 +19,8 @@ class DocumentEngine:
         vs = generate_variable_symbol(request_id)
         
         # Calculate duration and fee
-        duration_days = self._calculate_duration(extracted_data.get('duration', {}))
-        area_sqm = extracted_data.get('area_square_meters') or extracted_data.get('area_sqm') or extracted_data.get('area') or extracted_data.get('area_in_square_meters', 0)
+        duration_days = self._calculate_duration(extracted_data.get('duration') or extracted_data.get('duration_dates', {}))
+        area_sqm = self._extract_numeric_area(extracted_data.get('area_square_meters') or extracted_data.get('area_sqm') or extracted_data.get('area') or extracted_data.get('area_in_square_meters', 0))
         fee = area_sqm * duration_days * Config.DEFAULT_RATE_PER_SQM_DAY if area_sqm else 0
         
         # Add calculated values to data
@@ -168,4 +168,20 @@ class DocumentEngine:
             
             return int(area * duration_days * Config.DEFAULT_RATE_PER_SQM_DAY)
         except:
+            return 0
+    
+    def _extract_numeric_area(self, area_value):
+        """Extract numeric value from area field, handling corrupted data"""
+        try:
+            if isinstance(area_value, (int, float)):
+                return float(area_value)
+            elif isinstance(area_value, str):
+                # Extract first number from string, ignore repeated text
+                import re
+                numbers = re.findall(r'\d+(?:\.\d+)?', area_value)
+                if numbers:
+                    return float(numbers[0])
+            return 0
+        except Exception as e:
+            logger.warning(f"Area extraction failed: {e}, value: {area_value}")
             return 0
