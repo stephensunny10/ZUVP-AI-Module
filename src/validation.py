@@ -23,16 +23,9 @@ def validate_zuvp_data(extracted_data):
     missing_optional = []
     found_data = {}
     
-    # Check if data is completely empty or has errors
-    if not extracted_data or extracted_data.get('error'):
-        return {
-            'is_valid': False,
-            'is_zuvp_document': False,
-            'missing_required': list(set(required_fields.values())),
-            'missing_optional': list(optional_fields.values()),
-            'found_data': {},
-            'error_message': 'Dokument se nepodařilo zpracovat nebo neobsahuje rozpoznatelné údaje.'
-        }
+    # Always check fields even if there are errors
+    if not extracted_data:
+        extracted_data = {}
     
     # Check required fields
     required_found = set()
