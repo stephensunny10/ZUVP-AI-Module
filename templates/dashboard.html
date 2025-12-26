@@ -271,32 +271,32 @@
                     ${draft.validation && (draft.validation.missing_required.length > 0 || draft.validation.missing_optional.length > 0) ? 
                         `<div style="background: ${draft.validation.missing_required.length > 0 ? '#f8d7da' : '#fff3cd'}; color: ${draft.validation.missing_required.length > 0 ? '#721c24' : '#856404'}; padding: 0.75rem; border-radius: 5px; margin-bottom: 1rem; font-size: 0.9rem;">
                             ${draft.validation.missing_required.length > 0 ? 
-                                `<strong>Chybí povinné údaje:</strong><ul style="margin: 0.5rem 0 0 1rem; padding: 0;">${draft.validation.missing_required.map(field => `<li>${field}</li>`).join('')}</ul>` : ''
+                                `<strong> povinné údaje:</strong><ul style="margin: 0.5rem 0 0 1rem; padding: 0;">${draft.validation.missing_required.map(field => `<li>${field}</li>`).join('')}</ul>` : ''
                             }
                             ${draft.validation.missing_optional.length > 0 ? 
-                                `<strong>Chybí volitelné údaje:</strong><ul style="margin: 0.5rem 0 0 1rem; padding: 0;">${draft.validation.missing_optional.map(field => `<li>${field}</li>`).join('')}</ul>` : ''
+                                `<strong> volitelné údaje:</strong><ul style="margin: 0.5rem 0 0 1rem; padding: 0;">${draft.validation.missing_optional.map(field => `<li>${field}</li>`).join('')}</ul>` : ''
                             }
                         </div>` : ''
                     }
                     
                     <div class="draft-details">
-                        <div><strong>Žadatel:</strong> ${draft.extracted_data.applicant_name || '<span style="color: #dc3545;">Chybí</span>'}</div>
-                        <div><strong>IČO:</strong> ${draft.extracted_data.company_id || '<span style="color: #6c757d;">Není uvedeno</span>'}</div>
+                        <div><strong>Žadatel:</strong> ${draft.extracted_data.applicant_name || '<span style="color: #dc3545;"></span>'}</div>
+                        <div><strong>IČO:</strong> ${draft.extracted_data.company_id || '<span style="color: #6c757d;"> </span>'}</div>
                         <div><strong>Kontakt:</strong> ${draft.extracted_data.contact_details ? 
                             (typeof draft.extracted_data.contact_details === 'object' ? 
                                 `${draft.extracted_data.contact_details.address || ''}, tel: ${draft.extracted_data.contact_details.phone || ''}, email: ${draft.extracted_data.contact_details.email || ''}`.replace(/^, |, $/g, '').replace(/, ,/g, ',') : 
                                 draft.extracted_data.contact_details
-                            ) : '<span style="color: #6c757d;">Není uveden</span>'
+                            ) : '<span style="color: #6c757d;"> </span>'
                         }</div>
-                        <div><strong>Místo:</strong> ${draft.extracted_data.location || draft.extracted_data.specific_location || '<span style="color: #dc3545;">Chybí</span>'}</div>
-                        <div><strong>Účel:</strong> ${draft.extracted_data.purpose_of_use || draft.extracted_data.purpose || '<span style="color: #dc3545;">Chybí</span>'}</div>
+                        <div><strong>Místo:</strong> ${draft.extracted_data.location || draft.extracted_data.specific_location || '<span style="color: #dc3545;"></span>'}</div>
+                        <div><strong>Účel:</strong> ${draft.extracted_data.purpose_of_use || draft.extracted_data.purpose || '<span style="color: #dc3545;"></span>'}</div>
                         <div><strong>Doba:</strong> ${draft.extracted_data.duration ? 
                             (typeof draft.extracted_data.duration === 'object' ? 
                                 `${draft.extracted_data.duration.start || draft.extracted_data.duration.start_date || ''} - ${draft.extracted_data.duration.end || draft.extracted_data.duration.end_date || ''}` : 
                                 draft.extracted_data.duration
-                            ) : '<span style="color: #dc3545;">Chybí</span>'
+                            ) : '<span style="color: #dc3545;"></span>'
                         }</div>
-                        <div><strong>Plocha:</strong> ${draft.extracted_data.area_square_meters || draft.extracted_data.area_sqm || draft.extracted_data.area || '<span style="color: #dc3545;">Chybí</span>'} m²</div>
+                        <div><strong>Plocha:</strong> ${draft.extracted_data.area_square_meters || draft.extracted_data.area_sqm || draft.extracted_data.area || draft.extracted_data.area_in_square_meters || '<span style="color: #dc3545;"></span>'} m²</div>
                         <div><strong>Poplatek:</strong> ${draft.extracted_data.fee_czk || 0} Kč</div>
                     </div>
                     <div class="draft-actions">

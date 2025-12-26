@@ -87,9 +87,31 @@ class AICore:
     
     def _process_text_file(self, file_path):
         """Process text file with LLM"""
-        with open(file_path, 'r', encoding='utf-8') as f:
-            text = f.read()
-        return self._analyze_text_with_ai(text)
+        if file_path.lower().endswith('.docx'):
+            return self._process_docx_file(file_path)
+        else:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                text = f.read()
+            return self._analyze_text_with_ai(text)
+    
+    def _process_docx_file(self, file_path):
+        """Process DOCX file by extracting text content"""
+        try:
+            from docx import Document
+            doc = Document(file_path)
+            text = '\n'.join([paragraph.text for paragraph in doc.paragraphs])
+            
+            if text.strip():
+                logger.info(f"Extracted {len(text)} characters from DOCX: {file_path}")
+                print(f"\n=== DOCX TEXT EXTRACTED ===\n{text}\n=== END DOCX TEXT ===")
+                return self._analyze_text_with_ai(text)
+            else:
+                logger.warning(f"No text found in DOCX: {file_path}")
+                return {"error": "No text content found in DOCX"}
+                
+        except Exception as e:
+            logger.error(f"Error processing DOCX {file_path}: {str(e)}")
+            return {"error": f"DOCX processing failed: {str(e)}"}
     
     def _analyze_image_with_ai(self, image):
         """Analyze image using Nebius Vision API"""

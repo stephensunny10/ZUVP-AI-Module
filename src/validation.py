@@ -42,7 +42,7 @@ def validate_zuvp_data(extracted_data):
         value = extracted_data.get(field_key)
         # Also check alternative field names
         if not value and field_key == 'area_square_meters':
-            value = extracted_data.get('area_sqm') or extracted_data.get('area')
+            value = extracted_data.get('area_sqm') or extracted_data.get('area') or extracted_data.get('area_in_square_meters')
         elif not value and field_key == 'purpose_of_use':
             value = extracted_data.get('purpose')
         elif not value and field_key == 'duration':

@@ -20,7 +20,7 @@ class DocumentEngine:
         
         # Calculate duration and fee
         duration_days = self._calculate_duration(extracted_data.get('duration', {}))
-        area_sqm = extracted_data.get('area_square_meters') or extracted_data.get('area_sqm') or extracted_data.get('area', 0)
+        area_sqm = extracted_data.get('area_square_meters') or extracted_data.get('area_sqm') or extracted_data.get('area') or extracted_data.get('area_in_square_meters', 0)
         fee = area_sqm * duration_days * Config.DEFAULT_RATE_PER_SQM_DAY if area_sqm else 0
         
         # Add calculated values to data
@@ -79,7 +79,7 @@ class DocumentEngine:
         doc.add_paragraph(f"Doba užívání: {duration}")
         
         # Fee calculation
-        area = data.get('area_square_meters') or data.get('area_sqm') or data.get('area', 0)
+        area = data.get('area_square_meters') or data.get('area_sqm') or data.get('area') or data.get('area_in_square_meters', 0)
         if area:
             doc.add_paragraph(f"Výměra: {area} m²")
             doc.add_paragraph(f"Poplatek: {data.get('fee_czk', 0)} Kč")
@@ -113,7 +113,7 @@ class DocumentEngine:
         doc.add_paragraph()
         
         # Calculate fee
-        area = data.get('area_square_meters') or data.get('area_sqm') or data.get('area', 0)
+        area = data.get('area_square_meters') or data.get('area_sqm') or data.get('area') or data.get('area_in_square_meters', 0)
         duration = data.get('duration', {})
         fee = data.get('fee_czk', 0)  # Use pre-calculated fee
         
