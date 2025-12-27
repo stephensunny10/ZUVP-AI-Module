@@ -280,34 +280,39 @@
                     }
                     
                     <div class="draft-details">
-                        <div><strong>Žadatel:</strong> ${draft.extracted_data.applicant_name || '<span style="color: #dc3545;"></span>'}</div>
-                        <div><strong>IČO:</strong> ${draft.extracted_data.company_id || '<span style="color: #6c757d;"> </span>'}</div>
+                        <div><strong>Žadatel:</strong> ${draft.extracted_data.applicant_name || ''}</div>
+                        <div><strong>IČO:</strong> ${draft.extracted_data.company_id || ''}</div>
                         <div><strong>Kontakt:</strong> ${draft.extracted_data.contact_details ? 
                             (typeof draft.extracted_data.contact_details === 'object' ? 
                                 `${draft.extracted_data.contact_details.address || ''}, tel: ${draft.extracted_data.contact_details.phone || ''}, email: ${draft.extracted_data.contact_details.email || ''}`.replace(/^, |, $/g, '').replace(/, ,/g, ',') : 
                                 draft.extracted_data.contact_details
-                            ) : '<span style="color: #6c757d;"> </span>'
+                            ) : ''
                         }</div>
-                        <div><strong>Místo:</strong> ${draft.extracted_data.location || draft.extracted_data.specific_location || '<span style="color: #dc3545;"></span>'}</div>
-                        <div><strong>Účel:</strong> ${draft.extracted_data.purpose_of_use || draft.extracted_data.purpose || '<span style="color: #dc3545;"></span>'}</div>
-                        <div><strong>Doba:</strong> ${draft.extracted_data.duration ? 
-                            (typeof draft.extracted_data.duration === 'object' ? 
-                                `${draft.extracted_data.duration.start || draft.extracted_data.duration.start_date || ''} - ${draft.extracted_data.duration.end || draft.extracted_data.duration.end_date || ''}` : 
-                                draft.extracted_data.duration
-                            ) : draft.extracted_data.duration_dates ? 
-                            (typeof draft.extracted_data.duration_dates === 'object' ? 
-                                `${draft.extracted_data.duration_dates.start || draft.extracted_data.duration_dates.start_date || ''} - ${draft.extracted_data.duration_dates.end || draft.extracted_data.duration_dates.end_date || ''}` : 
-                                draft.extracted_data.duration_dates
-                            ) : '<span style="color: #dc3545;">Chybí</span>'
-                        }</div>
-                        <div><strong>Plocha:</strong> ${draft.extracted_data.area_square_meters || draft.extracted_data.area_sqm || draft.extracted_data.area || draft.extracted_data.area_in_square_meters || '<span style="color: #dc3545;"></span>'} m²</div>
-                        <div><strong>Poplatek:</strong> ${draft.extracted_data.fee_czk || 0} Kč</div>
+                        <div><strong>Místo:</strong> ${draft.extracted_data.location || draft.extracted_data.specific_location || ''}</div>
+                        <div><strong>Účel:</strong> ${draft.extracted_data.purpose_of_use || draft.extracted_data.purpose || ''}</div>
+                        <div><strong>Doba:</strong> ${(() => {
+                            const duration = draft.extracted_data.duration || draft.extracted_data.duration_dates;
+                            if (!duration) return '';
+                            if (typeof duration === 'string') return duration;
+                            if (typeof duration === 'object') {
+                                const start = duration.start_date || duration.start || '';
+                                const end = duration.end_date || duration.end || '';
+                                return start && end ? `${start} - ${end}` : '';
+                            }
+                            return '';
+                        })()}</div>
+                        <div><strong>Plocha:</strong> ${draft.extracted_data.area_square_meters || draft.extracted_data.area_sqm || draft.extracted_data.area || draft.extracted_data.area_in_square_meters || ''} ${draft.extracted_data.area_square_meters || draft.extracted_data.area_sqm || draft.extracted_data.area || draft.extracted_data.area_in_square_meters ? 'm²' : ''}</div>
+                        <div><strong>Poplatek:</strong> ${draft.validation && draft.validation.is_valid && draft.extracted_data.fee_czk ? draft.extracted_data.fee_czk + ' Kč' : ''}</div>
                     </div>
                     <div class="draft-actions">
-                        ${draft.status === 'pending_approval' ? 
+                        ${draft.validation && draft.validation.is_valid && draft.status === 'pending_approval' ? 
                             `<button class="btn btn-success" onclick="approveDraft('${draft.id}')">Schválit</button>` :
+                            draft.status === 'approved' && draft.documents ? 
                             `<button class="btn btn-primary" onclick="downloadDocument('${draft.id}', 'consent')">Souhlas</button>
-                             <button class="btn btn-primary" onclick="downloadDocument('${draft.id}', 'payment')">Platba</button>`
+                             <button class="btn btn-primary" onclick="downloadDocument('${draft.id}', 'payment')">Platba</button>` :
+                            draft.validation && !draft.validation.is_valid ?
+                            `<span style="color: #dc3545; font-style: italic;">Nelze schválit - chybí povinné údaje</span>` :
+                            ''
                         }
                     </div>
                 </div>
@@ -372,10 +377,15 @@
             });
         }
         
-        // File upload handling
+        // File input change handler
         document.getElementById('fileInput').addEventListener('change', function() {
             const file = this.files[0];
             if (file) {
+                // Disable upload area during processing
+                const uploadArea = document.getElementById('uploadArea');
+                uploadArea.style.pointerEvents = 'none';
+                uploadArea.style.opacity = '0.7';
+                
                 showUploadStatus(file.name, 'Nahrávání...');
                 
                 const formData = new FormData();
@@ -399,7 +409,19 @@
                     }
                     console.log('=== END RESPONSE ===');
                     
-                    if (data.error) {
+                    // Always show success if draft was created, even with missing fields
+                    if (data.status === 'draft_created' || data.status === 'incomplete_data') {
+                        let successMsg = 'Koncept vytvořen';
+                        if (data.error) {
+                            successMsg += ' - ' + data.error;
+                        }
+                        showUploadStatus(file.name, successMsg, data.error ? 'warning' : 'success');
+                        // Force refresh drafts immediately
+                        setTimeout(() => {
+                            loadDrafts();
+                            hideUploadStatus();
+                        }, 1000);
+                    } else if (data.error) {
                         let errorMsg = 'Chyba: ' + data.error;
                         if (data.validation && (data.validation.missing_required || data.validation.missing_optional)) {
                             if (data.validation.missing_required && data.validation.missing_required.length > 0) {
@@ -416,14 +438,13 @@
                             }
                         }
                         showUploadStatus(file.name, errorMsg, 'error');
-                    } else {
-                        showUploadStatus(file.name, 'Úspěšně zpracováno', 'success');
-                        loadDrafts();
-                        setTimeout(() => hideUploadStatus(), 3000);
                     }
                 })
                 .catch(error => {
-                    showUploadStatus(file.name, 'Chyba při zpracování', 'error');
+                    console.error('Upload error:', error);
+                    showUploadStatus(file.name, 'Chyba při zpracování: ' + error.message, 'error');
+                    // Reset file input to allow re-upload
+                    document.getElementById('fileInput').value = '';
                 });
             }
         });
@@ -438,13 +459,21 @@
             
             status.style.display = 'block';
             status.style.background = type === 'error' ? '#f8d7da' : 
-                                   type === 'success' ? '#d4edda' : '#fff3cd';
+                                   type === 'success' ? '#d4edda' : 
+                                   type === 'warning' ? '#fff3cd' : '#fff3cd';
             status.style.color = type === 'error' ? '#721c24' : 
-                               type === 'success' ? '#155724' : '#856404';
+                               type === 'success' ? '#155724' : 
+                               type === 'warning' ? '#856404' : '#856404';
         }
         
         function hideUploadStatus() {
             document.getElementById('uploadStatus').style.display = 'none';
+            // Re-enable upload area
+            const uploadArea = document.getElementById('uploadArea');
+            uploadArea.style.pointerEvents = 'auto';
+            uploadArea.style.opacity = '1';
+            // Reset file input
+            document.getElementById('fileInput').value = '';
         }
         
         // Initialize

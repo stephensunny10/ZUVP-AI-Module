@@ -42,6 +42,7 @@ class ZUVPPipeline:
             # Stage 2.5: Validation
             validation_result = validate_zuvp_data(extracted_data)
             
+            # Always create draft if any data was extracted
             if not validation_result['is_zuvp_document']:
                 return {
                     'request_id': request_id, 
@@ -50,26 +51,31 @@ class ZUVPPipeline:
                     'validation': validation_result
                 }
             
-            if not validation_result['is_valid']:
-                return {
-                    'request_id': request_id,
-                    'status': 'incomplete_data', 
-                    'error': validation_result['error_message'],
-                    'extracted_data': extracted_data,
-                    'validation': validation_result
-                }
+            # Stage 3: Document Generation (only if all required fields present)
+            documents = None
+            if validation_result['is_valid']:
+                documents = self.document_engine.generate_documents(extracted_data, request_id)
             
-            # Stage 3: Document Generation
-            documents = self.document_engine.generate_documents(extracted_data, request_id)
-            
-            # Stage 4: Create Draft
+            # Stage 4: Always Create Draft (even with missing fields)
             draft = self._create_draft(request_id, extracted_data, documents, validation_result)
             
-            # Send notification to clerk (disabled for now)
-            # self.email_notifier.send_draft_notification(draft)
+            # Determine response status
+            if validation_result['is_valid']:
+                status = 'draft_created'
+                # Send notification to clerk (disabled for now)
+                # self.email_notifier.send_draft_notification(draft)
+            else:
+                status = 'incomplete_data'
             
             logger.info(f"Successfully processed file {file.filename}")
-            return {'request_id': request_id, 'status': 'draft_created', 'draft': draft}
+            return {
+                'request_id': request_id, 
+                'status': status, 
+                'draft': draft,
+                'error': validation_result['error_message'] if not validation_result['is_valid'] else None,
+                'extracted_data': extracted_data,
+                'validation': validation_result
+            }
             
         except Exception as e:
             logger.error(f"Error processing file {file.filename}: {str(e)}")
@@ -80,7 +86,7 @@ class ZUVPPipeline:
             'id': request_id,
             'timestamp': datetime.now().isoformat(),
             'extracted_data': extracted_data,
-            'documents': documents,
+            'documents': documents,  # Will be None if validation failed
             'status': 'pending_approval',
             'validation': validation_result
         }
@@ -107,6 +113,15 @@ class ZUVPPipeline:
         
         with open(draft_path, 'r', encoding='utf-8') as f:
             draft = json.load(f)
+        
+        # Check if draft has all required fields
+        if not draft.get('validation', {}).get('is_valid', False):
+            raise ValueError("Cannot approve draft - missing required fields")
+        
+        # Generate documents if not already generated
+        if not draft.get('documents'):
+            documents = self.document_engine.generate_documents(draft['extracted_data'], draft_id)
+            draft['documents'] = documents
         
         # Update status
         draft['status'] = 'approved'
